@@ -1,0 +1,2 @@
+占位文件：go:embed 模式不接受点文件，目录需非空才能编译。
+真实工具链由主仓库 scripts/sliver-toolchain.sh ensure 在构建时下载到本目录（编译后可清理）。

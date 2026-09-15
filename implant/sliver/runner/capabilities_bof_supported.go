@@ -1,0 +1,11 @@
+//go:build !sliver_lint && ((darwin && (amd64 || arm64)) || (linux && (386 || amd64 || arm64)) || (windows && (386 || amd64 || arm64)))
+
+package runner
+
+import "4zreco/sliver/protobuf/sliverpb"
+
+func implantCapabilities() uint64 {
+	return uint64(sliverpb.ImplantCapability_IMPLANT_CAPABILITY_BOF_V1) |
+		uint64(sliverpb.ImplantCapability_IMPLANT_CAPABILITY_TUNNEL_TERMINAL_V1) |
+		uint64(sliverpb.ImplantCapability_IMPLANT_CAPABILITY_SOCKS_FLOW_CONTROL_V1)
+}

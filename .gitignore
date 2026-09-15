@@ -1,0 +1,7 @@
+
+# 交叉编译工具链：构建时由主仓库 scripts/sliver-toolchain.sh ensure 在线下载（勿入库）
+server/assets/fs/src.zip
+server/assets/fs/linux/amd64/zig.tar.xz
+server/assets/fs/linux/amd64/go.zip
+server/assets/fs/linux/arm64/zig.tar.xz
+server/assets/fs/linux/arm64/go.zip
