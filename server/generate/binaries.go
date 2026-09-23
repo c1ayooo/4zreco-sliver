@@ -318,6 +318,45 @@ func GetSliversDir() string {
 // Sliver Generation Code
 // -----------------------
 
+// commonGoConfig 六处构建分支共享的 GoConfig 基础项（工具链路径/代理/混淆开关）。
+// 二开收敛点（免杀改造 S-1）：构建参数改动只改这里，六形态同步生效，
+// 避免形态间行为分叉；CGO/CC/CXX 等分支差异由各构建函数自行补充。
+func commonGoConfig(config *clientpb.ImplantConfig, appDir string) *gogo.GoConfig {
+	return &gogo.GoConfig{
+		GOOS:       config.GOOS,
+		GOARCH:     config.GOARCH,
+		GOCACHE:    gogo.GetGoCache(appDir),
+		GOMODCACHE: gogo.GetGoModCache(appDir),
+		GOROOT:     gogo.GetGoRootDir(appDir),
+		GOPROXY:    getGoProxy(),
+		HTTPPROXY:  getGoHttpProxy(),
+		HTTPSPROXY: getGoHttpsProxy(),
+
+		Obfuscation: config.ObfuscateSymbols,
+		GOGARBLE:    goGarble(config),
+	}
+}
+
+// buildTags 六处共享的构建 tag（netgo 按需启用）。
+func buildTags(config *clientpb.ImplantConfig) []string {
+	tags := buildTags(config)
+	return tags
+}
+
+// baseLdFlags 基础 ldflags 收敛点（免杀改造 S-3）：非 garble 构建默认注入
+// "-s -w"（上游仅 garble 路径自动带，裸 go build 产物符号表全开）；
+// garble 构建会自动追加 "-s -w -buildid="，不重复注入。Debug 构建保留符号。
+// 约定：单元素切片（GoBuild 逐元素追加在 -ldflags 后，多元素会破坏 go 命令行）。
+func baseLdFlags(config *clientpb.ImplantConfig) []string {
+	if config.Debug {
+		return []string{}
+	}
+	if config.ObfuscateSymbols {
+		return []string{""}
+	}
+	return []string{" -s -w"}
+}
+
 // SliverShellcode - Generates a sliver shellcode (Windows: Donut, macOS: beignet, Linux: malasada)
 func SliverShellcode(name string, build *clientpb.ImplantBuild, config *clientpb.ImplantConfig, pbC2Implant *clientpb.HTTPC2ImplantConfig) (string, error) {
 	switch config.GOOS {
@@ -348,23 +387,10 @@ func linuxShellcode(name string, build *clientpb.ImplantBuild, config *clientpb.
 		cc, cxx = findCrossCompilers(config.GOOS, config.GOARCH)
 	}
 
-	goConfig := &gogo.GoConfig{
-		CGO: "1",
-		CC:  cc,
-		CXX: cxx,
-
-		GOOS:       config.GOOS,
-		GOARCH:     config.GOARCH,
-		GOCACHE:    gogo.GetGoCache(appDir),
-		GOMODCACHE: gogo.GetGoModCache(appDir),
-		GOROOT:     gogo.GetGoRootDir(appDir),
-		GOPROXY:    getGoProxy(),
-		HTTPPROXY:  getGoHttpProxy(),
-		HTTPSPROXY: getGoHttpsProxy(),
-
-		Obfuscation: config.ObfuscateSymbols,
-		GOGARBLE:    goGarble(config),
-	}
+	goConfig := commonGoConfig(config, appDir)
+	goConfig.CGO = "1"
+	goConfig.CC = cc
+	goConfig.CXX = cxx
 	sanitizeZigForBuild(goConfig, "c-shared")
 	buildLog.Infof(" CC: %s", goConfig.CC)
 	buildLog.Infof("CXX: %s", goConfig.CXX)
@@ -383,11 +409,8 @@ func linuxShellcode(name string, build *clientpb.ImplantBuild, config *clientpb.
 	defer os.Remove(tmpFile.Name())
 	soDest := tmpFile.Name()
 
-	tags := []string{}
-	if config.NetGoEnabled {
-		tags = append(tags, "netgo")
-	}
-	ldflags := []string{""} // Garble will automatically add "-s -w -buildid="
+	tags := buildTags(config)
+	ldflags := baseLdFlags(config) // S-1/S-3 收敛点：garble 自动加 "-s -w -buildid="，非 garble 默认 -s -w
 	ldflags, wantStaticSO := applyZigStaticLinking(goConfig, "c-shared", ldflags)
 	gcFlags := ""
 	asmFlags := ""
@@ -437,23 +460,10 @@ func darwinShellcode(name string, build *clientpb.ImplantBuild, config *clientpb
 		cc, cxx = findCrossCompilers(config.GOOS, config.GOARCH)
 	}
 
-	goConfig := &gogo.GoConfig{
-		CGO: "1",
-		CC:  cc,
-		CXX: cxx,
-
-		GOOS:       config.GOOS,
-		GOARCH:     config.GOARCH,
-		GOCACHE:    gogo.GetGoCache(appDir),
-		GOMODCACHE: gogo.GetGoModCache(appDir),
-		GOROOT:     gogo.GetGoRootDir(appDir),
-		GOPROXY:    getGoProxy(),
-		HTTPPROXY:  getGoHttpProxy(),
-		HTTPSPROXY: getGoHttpsProxy(),
-
-		Obfuscation: config.ObfuscateSymbols,
-		GOGARBLE:    goGarble(config),
-	}
+	goConfig := commonGoConfig(config, appDir)
+	goConfig.CGO = "1"
+	goConfig.CC = cc
+	goConfig.CXX = cxx
 
 	config.IsSharedLib = true
 	pkgPath, err := renderSliverGoCode(name, build, config, goConfig, pbC2Implant)
@@ -469,11 +479,8 @@ func darwinShellcode(name string, build *clientpb.ImplantBuild, config *clientpb
 	defer os.Remove(tmpFile.Name())
 	dylibDest := tmpFile.Name()
 
-	tags := []string{}
-	if config.NetGoEnabled {
-		tags = append(tags, "netgo")
-	}
-	ldflags := []string{""} // Garble will automatically add "-s -w -buildid="
+	tags := buildTags(config)
+	ldflags := baseLdFlags(config) // S-1/S-3 收敛点：garble 自动加 "-s -w -buildid="，非 garble 默认 -s -w
 	// Keep those for potential later use
 	gcFlags := ""
 	asmFlags := ""
@@ -516,21 +523,8 @@ func windowsShellcode(name string, build *clientpb.ImplantBuild, config *clientp
 	}
 
 	appDir := assets.GetRootAppDir()
-	goConfig := &gogo.GoConfig{
-		CGO: "0",
-
-		GOOS:       config.GOOS,
-		GOARCH:     config.GOARCH,
-		GOCACHE:    gogo.GetGoCache(appDir),
-		GOMODCACHE: gogo.GetGoModCache(appDir),
-		GOROOT:     gogo.GetGoRootDir(appDir),
-		GOPROXY:    getGoProxy(),
-		HTTPPROXY:  getGoHttpProxy(),
-		HTTPSPROXY: getGoHttpsProxy(),
-
-		Obfuscation: config.ObfuscateSymbols,
-		GOGARBLE:    goGarble(config),
-	}
+	goConfig := commonGoConfig(config, appDir)
+	goConfig.CGO = "0"
 	pkgPath, err := renderSliverGoCode(name, build, config, goConfig, pbC2Implant)
 	if err != nil {
 		return "", err
@@ -544,11 +538,8 @@ func windowsShellcode(name string, build *clientpb.ImplantBuild, config *clientp
 		os.Remove(dest)
 	}
 
-	tags := []string{}
-	if config.NetGoEnabled {
-		tags = append(tags, "netgo")
-	}
-	ldflags := []string{""} // Garble will automatically add "-s -w -buildid="
+	tags := buildTags(config)
+	ldflags := baseLdFlags(config) // S-1/S-3 收敛点：garble 自动加 "-s -w -buildid="，非 garble 默认 -s -w
 	if !config.Debug && goConfig.GOOS == WINDOWS {
 		ldflags[0] += " -H=windowsgui"
 	}
@@ -587,23 +578,10 @@ func SliverSharedLibrary(name string, build *clientpb.ImplantBuild, config *clie
 	buildLog.Infof(" CC: %s", cc)
 	buildLog.Infof("CXX: %s", cxx)
 
-	goConfig := &gogo.GoConfig{
-		CGO: "1",
-		CC:  cc,
-		CXX: cxx,
-
-		GOOS:       config.GOOS,
-		GOARCH:     config.GOARCH,
-		GOCACHE:    gogo.GetGoCache(appDir),
-		GOMODCACHE: gogo.GetGoModCache(appDir),
-		GOROOT:     gogo.GetGoRootDir(appDir),
-		GOPROXY:    getGoProxy(),
-		HTTPPROXY:  getGoHttpProxy(),
-		HTTPSPROXY: getGoHttpsProxy(),
-
-		Obfuscation: config.ObfuscateSymbols,
-		GOGARBLE:    goGarble(config),
-	}
+	goConfig := commonGoConfig(config, appDir)
+	goConfig.CGO = "1"
+	goConfig.CC = cc
+	goConfig.CXX = cxx
 	sanitizeZigForBuild(goConfig, "c-shared")
 	buildLog.Infof(" CC: %s", goConfig.CC)
 	buildLog.Infof("CXX: %s", goConfig.CXX)
@@ -624,11 +602,8 @@ func SliverSharedLibrary(name string, build *clientpb.ImplantBuild, config *clie
 		dest += ".so"
 	}
 
-	tags := []string{}
-	if config.NetGoEnabled {
-		tags = append(tags, "netgo")
-	}
-	ldflags := []string{""} // Garble will automatically add "-s -w -buildid="
+	tags := buildTags(config)
+	ldflags := baseLdFlags(config) // S-1/S-3 收敛点：garble 自动加 "-s -w -buildid="，非 garble 默认 -s -w
 	ldflags, wantStaticSO := applyZigStaticLinking(goConfig, "c-shared", ldflags)
 	if !config.Debug && goConfig.GOOS == WINDOWS {
 		ldflags[0] += " -H=windowsgui"
@@ -695,23 +670,10 @@ func SliverArchive(name string, build *clientpb.ImplantBuild, config *clientpb.I
 	buildLog.Infof(" CC: %s", cc)
 	buildLog.Infof("CXX: %s", cxx)
 
-	goConfig := &gogo.GoConfig{
-		CGO: "1",
-		CC:  cc,
-		CXX: cxx,
-
-		GOOS:       config.GOOS,
-		GOARCH:     config.GOARCH,
-		GOCACHE:    gogo.GetGoCache(appDir),
-		GOMODCACHE: gogo.GetGoModCache(appDir),
-		GOROOT:     gogo.GetGoRootDir(appDir),
-		GOPROXY:    getGoProxy(),
-		HTTPPROXY:  getGoHttpProxy(),
-		HTTPSPROXY: getGoHttpsProxy(),
-
-		Obfuscation: config.ObfuscateSymbols,
-		GOGARBLE:    goGarble(config),
-	}
+	goConfig := commonGoConfig(config, appDir)
+	goConfig.CGO = "1"
+	goConfig.CC = cc
+	goConfig.CXX = cxx
 	sanitizeZigForBuild(goConfig, "c-archive")
 	buildLog.Infof(" CC: %s", goConfig.CC)
 	buildLog.Infof("CXX: %s", goConfig.CXX)
@@ -728,11 +690,8 @@ func SliverArchive(name string, build *clientpb.ImplantBuild, config *clientpb.I
 	zipDest := strings.TrimSuffix(dest, filepath.Ext(dest)) + ".zip"
 	mainHeaderDest := filepath.Join(pkgPath, "main.h")
 
-	tags := []string{}
-	if config.NetGoEnabled {
-		tags = append(tags, "netgo")
-	}
-	ldflags := []string{""} // Garble will automatically add "-s -w -buildid="
+	tags := buildTags(config)
+	ldflags := baseLdFlags(config) // S-1/S-3 收敛点：garble 自动加 "-s -w -buildid="，非 garble 默认 -s -w
 
 	// Keep those for potential later use
 	gcFlags := ""
@@ -760,20 +719,8 @@ func SliverArchive(name string, build *clientpb.ImplantBuild, config *clientpb.I
 func SliverExecutable(name string, build *clientpb.ImplantBuild, config *clientpb.ImplantConfig, pbC2Implant *clientpb.HTTPC2ImplantConfig) (string, error) {
 	appDir := assets.GetRootAppDir()
 
-	goConfig := &gogo.GoConfig{
-		CGO:        "0",
-		GOOS:       config.GOOS,
-		GOARCH:     config.GOARCH,
-		GOROOT:     gogo.GetGoRootDir(appDir),
-		GOCACHE:    gogo.GetGoCache(appDir),
-		GOMODCACHE: gogo.GetGoModCache(appDir),
-		GOPROXY:    getGoProxy(),
-		HTTPPROXY:  getGoHttpProxy(),
-		HTTPSPROXY: getGoHttpsProxy(),
-
-		Obfuscation: config.ObfuscateSymbols,
-		GOGARBLE:    goGarble(config),
-	}
+	goConfig := commonGoConfig(config, appDir)
+	goConfig.CGO = "0"
 
 	pkgPath, err := renderSliverGoCode(name, build, config, goConfig, pbC2Implant)
 	if err != nil {
@@ -784,11 +731,8 @@ func SliverExecutable(name string, build *clientpb.ImplantBuild, config *clientp
 	if goConfig.GOOS == WINDOWS {
 		dest += ".exe"
 	}
-	tags := []string{}
-	if config.NetGoEnabled {
-		tags = append(tags, "netgo")
-	}
-	ldflags := []string{""} // Garble will automatically add "-s -w -buildid="
+	tags := buildTags(config)
+	ldflags := baseLdFlags(config) // S-1/S-3 收敛点：garble 自动加 "-s -w -buildid="，非 garble 默认 -s -w
 	if !config.Debug && goConfig.GOOS == WINDOWS {
 		ldflags[0] += " -H=windowsgui"
 	}
