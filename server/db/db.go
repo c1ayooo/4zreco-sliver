@@ -34,10 +34,18 @@ var Client *gorm.DB
 var clientOnce sync.Once
 
 // Session - Database session
+//
+// 惰性初始化带显式替换保护：测试先把 Client 换成临时库再触发首条 SQL 时，
+// clientOnce 一旦在此刻才触发会用真实 root dir 的连接覆盖替换（曾把测试注册的
+// beacon 写进生产 ~/.sliver/sliver.db）。Client 已非空时跳过 once，尊重替换。
 func Session() *gorm.DB {
-	clientOnce.Do(func() {
-		Client = newDBClient()
-	})
+	if Client == nil {
+		clientOnce.Do(func() {
+			if Client == nil {
+				Client = newDBClient()
+			}
+		})
+	}
 	return Client.Session(&gorm.Session{
 		FullSaveAssociations: true,
 	})

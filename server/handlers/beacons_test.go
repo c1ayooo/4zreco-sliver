@@ -15,6 +15,10 @@ import (
 )
 
 func TestBeaconRegisterHandlerPropagatesCapabilities(t *testing.T) {
+	// SLIVER_ROOT_DIR 隔离：即便惰性初始化在本测试内首次触发（db.Client 替换前
+	// 已有路径调用过 Session() 等），也只会建到临时目录的库，不污染真实 ~/.sliver。
+	t.Setenv("SLIVER_ROOT_DIR", t.TempDir())
+
 	testDB, err := gorm.Open(sqlite.Open(filepath.Join(t.TempDir(), "beacon-capabilities.db")), &gorm.Config{})
 	if err != nil {
 		t.Fatalf("open test database: %v", err)

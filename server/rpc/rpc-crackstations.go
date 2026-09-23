@@ -206,7 +206,7 @@ func (rpc *Server) CrackstationRegister(req *clientpb.Crackstation, stream rpcpb
 		case msg := <-crackStation.Events: // This event stream is specific to this crackstation
 			err := stream.Send(msg)
 			if err != nil {
-				crackRpcLog.Warnf(err.Error())
+				crackRpcLog.Warnf("%s", err.Error())
 				return rpcError(err)
 			}
 		case event := <-events: // All server-side events
@@ -233,7 +233,7 @@ func (rpc *Server) CrackstationRegister(req *clientpb.Crackstation, stream rpcpb
 
 			err := stream.Send(pbEvent)
 			if err != nil {
-				crackRpcLog.Warnf(err.Error())
+				crackRpcLog.Warnf("%s", err.Error())
 				return rpcError(err)
 			}
 		}

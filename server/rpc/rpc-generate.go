@@ -779,7 +779,7 @@ func (rpc *Server) BuilderRegister(req *clientpb.Builder, stream rpcpb.SliverRPC
 
 			err := stream.Send(pbEvent)
 			if err != nil {
-				rpcEventsLog.Warnf(err.Error())
+				rpcEventsLog.Warnf("%s", err.Error())
 				return rpcError(err)
 			}
 		}
