@@ -21,13 +21,13 @@ package rpc
 import (
 	"context"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/server/msf"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/server/msf"
 )
 
 var (

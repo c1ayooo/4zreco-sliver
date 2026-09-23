@@ -40,11 +40,11 @@ package handlers
 import (
 	"fmt"
 
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/cryptography"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/cryptography"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/log"
 	"github.com/gofrs/uuid"
 	"google.golang.org/protobuf/proto"
 )

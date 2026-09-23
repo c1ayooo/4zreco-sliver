@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 func TestEventHubRejectsCursorOlderThanRetainedHistory(t *testing.T) {

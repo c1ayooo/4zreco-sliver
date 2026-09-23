@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/command/alias"
-	"4zreco/sliver/client/command/extensions"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/command/alias"
+	"4zreco/var/sliver/client/command/extensions"
 )
 
 func resetPackageCache(t *testing.T) {

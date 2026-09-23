@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db/models"
 )
 
 func formatEvent(event core.Event) (string, string) {

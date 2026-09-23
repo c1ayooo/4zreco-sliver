@@ -26,7 +26,7 @@ import (
 	"strings"
 	"syscall"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 func GetMountInformation() ([]*sliverpb.MountInfo, error) {

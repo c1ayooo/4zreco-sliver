@@ -24,9 +24,9 @@ import (
 	"os"
 	"strings"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/command/settings"
-	"4zreco/sliver/client/console"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/command/settings"
+	"4zreco/var/sliver/client/console"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
 	"github.com/rsteube/carapace"

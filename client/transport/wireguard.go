@@ -13,8 +13,8 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	"golang.zx2c4.com/wireguard/conn"
 	"golang.zx2c4.com/wireguard/device"
 	"google.golang.org/grpc"

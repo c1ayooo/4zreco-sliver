@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"time"
 
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/db/models"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/db/models"
+	"4zreco/var/sliver/server/log"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

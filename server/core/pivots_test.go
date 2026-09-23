@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/cryptography"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/cryptography"
 )
 
 func TestPivotStartStopsWhenEitherConnectionCloses(t *testing.T) {

@@ -8,8 +8,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	serverai "4zreco/sliver/server/ai"
-	utilencoders "4zreco/sliver/util/encoders"
+	serverai "4zreco/var/sliver/server/ai"
+	utilencoders "4zreco/var/sliver/util/encoders"
 )
 
 const aiEncodingDefaultMaxBytes = 64 * 1024

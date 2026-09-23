@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 func TestTunnelIOBuffersDataBeforeReaderStarts(t *testing.T) {

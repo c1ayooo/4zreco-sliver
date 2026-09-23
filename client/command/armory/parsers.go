@@ -34,8 +34,8 @@ import (
 	"strings"
 	"time"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/util/minisign"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/util/minisign"
 )
 
 // ArmoryIndexParser - Generic interface to fetch armory indexes

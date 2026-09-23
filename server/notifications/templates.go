@@ -13,9 +13,9 @@ import (
 	texttemplate "text/template"
 	"time"
 
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db/models"
 )
 
 const (

@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/reflect/protoregistry"
 )

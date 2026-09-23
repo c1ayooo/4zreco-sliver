@@ -21,8 +21,8 @@ package rpc
 import (
 	"context"
 
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // ExecuteChildren - List tracked background execute child processes

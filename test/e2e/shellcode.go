@@ -13,11 +13,11 @@ import (
 	"time"
 	"unicode/utf8"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	e2ecoverage "4zreco/sliver/test/e2e/coverage"
-	"4zreco/sliver/test/e2e/shellcodecoverage"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	e2ecoverage "4zreco/var/sliver/test/e2e/coverage"
+	"4zreco/var/sliver/test/e2e/shellcodecoverage"
 )
 
 const shellcodeFailureDetailBytes = 16 * 1024

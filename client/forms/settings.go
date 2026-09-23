@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"charm.land/huh/v2"
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/theme"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/theme"
 )
 
 // SettingsFormResult captures the inputs needed to update client settings.

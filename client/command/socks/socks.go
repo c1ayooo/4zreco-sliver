@@ -23,9 +23,9 @@ import (
 	"sort"
 	"strconv"
 
-	"4zreco/sliver/client/command/settings"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/core"
+	"4zreco/var/sliver/client/command/settings"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/core"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/rsteube/carapace"
 	"github.com/spf13/cobra"

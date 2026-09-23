@@ -23,7 +23,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/console"
+	"4zreco/var/sliver/client/console"
 )
 
 // LootFetchCmd - Display the contents of or download a piece of loot

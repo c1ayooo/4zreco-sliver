@@ -28,10 +28,10 @@ import (
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/proto"
 
-	"4zreco/sliver/client/command/loot"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/command/loot"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // ProcdumpCmd - Dump the memory of a remote process

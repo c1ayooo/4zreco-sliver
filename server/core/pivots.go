@@ -21,9 +21,9 @@ package core
 import (
 	"sync"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/cryptography"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/cryptography"
 	"github.com/gofrs/uuid"
 	"google.golang.org/protobuf/proto"
 )

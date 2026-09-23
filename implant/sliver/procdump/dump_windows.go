@@ -29,7 +29,7 @@ import (
 
 	// {{if .Config.Evasion}}
 	// {{if eq .Config.GOARCH "amd64"}}
-	"4zreco/sliver/implant/sliver/evasion"
+	"4zreco/var/sliver/implant/sliver/evasion"
 	// {{end}}
 	// {{end}}
 
@@ -37,8 +37,8 @@ import (
 	"encoding/binary"
 	"unsafe"
 
-	"4zreco/sliver/implant/sliver/priv"
-	"4zreco/sliver/implant/sliver/syscalls"
+	"4zreco/var/sliver/implant/sliver/priv"
+	"4zreco/var/sliver/implant/sliver/syscalls"
 	"golang.org/x/sys/windows"
 )
 

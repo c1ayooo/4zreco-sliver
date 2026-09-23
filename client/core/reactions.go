@@ -21,7 +21,7 @@ package core
 import (
 	"sync"
 
-	consts "4zreco/sliver/client/constants"
+	consts "4zreco/var/sliver/client/constants"
 )
 
 var (

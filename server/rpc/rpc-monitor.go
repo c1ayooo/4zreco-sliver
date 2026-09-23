@@ -3,9 +3,9 @@ package rpc
 import (
 	"context"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/server/watchtower"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/server/watchtower"
 )
 
 func (rpc *Server) MonitorStart(ctx context.Context, _ *commonpb.Empty) (*commonpb.Response, error) {

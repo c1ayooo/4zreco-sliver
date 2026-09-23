@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/spf13/cobra"
 )
 

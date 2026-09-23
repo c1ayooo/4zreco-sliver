@@ -22,11 +22,11 @@ import (
 	"fmt"
 	"os"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/command"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/transport"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/command"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/transport"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 )

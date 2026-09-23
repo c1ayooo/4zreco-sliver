@@ -8,8 +8,8 @@ import (
 	"unicode/utf8"
 
 	bspinner "charm.land/bubbles/v2/spinner"
-	"4zreco/sliver/client/transport"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/client/transport"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	"google.golang.org/grpc"
 )
 

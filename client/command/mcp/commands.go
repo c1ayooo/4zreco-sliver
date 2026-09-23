@@ -1,11 +1,11 @@
 package mcp
 
 import (
-	"4zreco/sliver/client/command/flags"
-	"4zreco/sliver/client/command/help"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
-	clientmcp "4zreco/sliver/client/mcp"
+	"4zreco/var/sliver/client/command/flags"
+	"4zreco/var/sliver/client/command/help"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
+	clientmcp "4zreco/var/sliver/client/mcp"
 	"github.com/rsteube/carapace"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"

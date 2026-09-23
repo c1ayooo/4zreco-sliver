@@ -5,7 +5,7 @@ package notifications
 import (
 	"errors"
 
-	"4zreco/sliver/server/configs"
+	"4zreco/var/sliver/server/configs"
 	"github.com/nikoksr/notify"
 )
 

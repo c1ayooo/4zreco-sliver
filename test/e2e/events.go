@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"sync"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
 )
 
 const eventHistorySize = 512

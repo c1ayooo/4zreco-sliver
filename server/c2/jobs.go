@@ -29,12 +29,12 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/client/constants"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/certs"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/client/constants"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/certs"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/log"
 	"golang.zx2c4.com/wireguard/device"
 )
 

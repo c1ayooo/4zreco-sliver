@@ -8,7 +8,7 @@ import (
 	"sync"
 
 	"charm.land/lipgloss/v2"
-	"4zreco/sliver/client/assets"
+	"4zreco/var/sliver/client/assets"
 	"gopkg.in/yaml.v3"
 )
 

@@ -25,9 +25,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/util"
 
 	"github.com/sirupsen/logrus"
 )

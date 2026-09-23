@@ -24,9 +24,9 @@ import (
 	"runtime"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/encoders/shellcode/sgn"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/encoders/shellcode/sgn"
 )
 
 func TestSliverShellcodeWindows(t *testing.T) {

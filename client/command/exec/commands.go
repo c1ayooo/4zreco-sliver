@@ -1,13 +1,13 @@
 package exec
 
 import (
-	"4zreco/sliver/client/command/completers"
-	"4zreco/sliver/client/command/flags"
-	"4zreco/sliver/client/command/generate"
-	"4zreco/sliver/client/command/help"
-	shellcodeencoders "4zreco/sliver/client/command/shellcode-encoders"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
+	"4zreco/var/sliver/client/command/completers"
+	"4zreco/var/sliver/client/command/flags"
+	"4zreco/var/sliver/client/command/generate"
+	"4zreco/var/sliver/client/command/help"
+	shellcodeencoders "4zreco/var/sliver/client/command/shellcode-encoders"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
 	"github.com/rsteube/carapace"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"

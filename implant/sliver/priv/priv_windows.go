@@ -37,9 +37,9 @@ import (
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
 
-	"4zreco/sliver/implant/sliver/ps"
-	"4zreco/sliver/implant/sliver/syscalls"
-	"4zreco/sliver/implant/sliver/taskrunner"
+	"4zreco/var/sliver/implant/sliver/ps"
+	"4zreco/var/sliver/implant/sliver/syscalls"
+	"4zreco/var/sliver/implant/sliver/taskrunner"
 )
 
 const (

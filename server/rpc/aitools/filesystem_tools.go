@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	serverai "4zreco/sliver/server/ai"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	serverai "4zreco/var/sliver/server/ai"
 )
 
 type moveToolArgs struct {

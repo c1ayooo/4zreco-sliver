@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	coverage "4zreco/sliver/test/e2e/coverage"
-	rportfwdcoverage "4zreco/sliver/test/e2e/rportfwdcoverage"
+	coverage "4zreco/var/sliver/test/e2e/coverage"
+	rportfwdcoverage "4zreco/var/sliver/test/e2e/rportfwdcoverage"
 )
 
 func TestRunTargetVerification(t *testing.T) {

@@ -21,8 +21,8 @@ package rpc
 import (
 	"context"
 
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // GetEnv - Retrieve the environment variables list from the current session

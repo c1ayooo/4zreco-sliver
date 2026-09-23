@@ -1,9 +1,9 @@
 package shellcode
 
 import (
-	"4zreco/sliver/server/encoders/shellcode/amd64"
-	"4zreco/sliver/server/encoders/shellcode/arm64"
-	"4zreco/sliver/server/encoders/shellcode/sgn"
+	"4zreco/var/sliver/server/encoders/shellcode/amd64"
+	"4zreco/var/sliver/server/encoders/shellcode/arm64"
+	"4zreco/var/sliver/server/encoders/shellcode/sgn"
 )
 
 type ShellcodeEncoderArgs struct {

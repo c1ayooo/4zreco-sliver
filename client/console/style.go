@@ -22,7 +22,7 @@ import (
 	"image/color"
 
 	"charm.land/lipgloss/v2"
-	"4zreco/sliver/client/theme"
+	"4zreco/var/sliver/client/theme"
 )
 
 // TextStyle is the shared styling type for the client/server consoles.

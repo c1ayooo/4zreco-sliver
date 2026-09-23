@@ -16,8 +16,8 @@ import (
 	"charm.land/glamour/v2"
 	glamourstyles "charm.land/glamour/v2/styles"
 	"charm.land/lipgloss/v2"
-	clienttheme "4zreco/sliver/client/theme"
-	embeddeddocs "4zreco/sliver/docs"
+	clienttheme "4zreco/var/sliver/client/theme"
+	embeddeddocs "4zreco/var/sliver/docs"
 	"github.com/charmbracelet/x/ansi"
 	"golang.org/x/term"
 )

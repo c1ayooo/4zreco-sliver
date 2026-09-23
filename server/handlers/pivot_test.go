@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
 	"github.com/gofrs/uuid"
 	"google.golang.org/protobuf/proto"
 )

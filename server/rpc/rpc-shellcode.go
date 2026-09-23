@@ -24,9 +24,9 @@ import (
 	"sort"
 	"strings"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/server/encoders/shellcode"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/server/encoders/shellcode"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

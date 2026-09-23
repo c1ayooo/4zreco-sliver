@@ -21,8 +21,8 @@ package models
 import (
 	"time"
 
-	"4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/gofrs/uuid"
 	"gorm.io/gorm"
 )

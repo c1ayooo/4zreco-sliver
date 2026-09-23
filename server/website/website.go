@@ -25,9 +25,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/db"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/db"
 )
 
 func getWebContentDir() (string, error) {

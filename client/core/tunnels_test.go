@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 type tunnelGenerationTestStream struct {

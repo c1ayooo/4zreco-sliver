@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/commonpb"
 	opforengine "github.com/sliverarmory/opfor"
 )
 

@@ -25,9 +25,9 @@ import (
 	// {{if .Config.Debug}}
 	"log"
 	// {{end}}
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/core/rtunnels"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/core/rtunnels"
 	"google.golang.org/protobuf/proto"
 )
 

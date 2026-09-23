@@ -8,11 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
-	serverCrypto "4zreco/sliver/server/cryptography"
-	serverHandlers "4zreco/sliver/server/handlers"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
+	serverCrypto "4zreco/var/sliver/server/cryptography"
+	serverHandlers "4zreco/var/sliver/server/handlers"
 	"google.golang.org/protobuf/proto"
 )
 

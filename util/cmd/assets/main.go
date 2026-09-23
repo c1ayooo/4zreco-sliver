@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"4zreco/sliver/util/assets"
+	"4zreco/var/sliver/util/assets"
 )
 
 func main() {

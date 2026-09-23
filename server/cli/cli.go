@@ -28,16 +28,16 @@ import (
 
 	"github.com/spf13/cobra"
 
-	clientcli "4zreco/sliver/client/cli"
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/encoders"
-	"4zreco/sliver/server/c2"
-	"4zreco/sliver/server/certs"
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/console"
-	"4zreco/sliver/server/cryptography"
-	"4zreco/sliver/server/daemon"
-	"4zreco/sliver/server/db"
+	clientcli "4zreco/var/sliver/client/cli"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/encoders"
+	"4zreco/var/sliver/server/c2"
+	"4zreco/var/sliver/server/certs"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/console"
+	"4zreco/var/sliver/server/cryptography"
+	"4zreco/var/sliver/server/daemon"
+	"4zreco/var/sliver/server/db"
 )
 
 const (

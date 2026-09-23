@@ -8,9 +8,9 @@ import (
 	"sort"
 	"strings"
 
-	"4zreco/sliver/client/packages"
-	serverassets "4zreco/sliver/server/assets"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/client/packages"
+	serverassets "4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/util"
 )
 
 const (

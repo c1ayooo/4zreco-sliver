@@ -3,7 +3,7 @@ package notifications
 import (
 	"testing"
 
-	"4zreco/sliver/server/configs"
+	"4zreco/var/sliver/server/configs"
 )
 
 func TestResolveEnvString(t *testing.T) {

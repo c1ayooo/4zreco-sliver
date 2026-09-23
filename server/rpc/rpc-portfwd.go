@@ -25,8 +25,8 @@ import (
 	"strings"
 	"unicode"
 
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"

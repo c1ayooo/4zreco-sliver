@@ -26,7 +26,7 @@ import (
 	"text/template"
 	"time"
 
-	"4zreco/sliver/client/theme"
+	"4zreco/var/sliver/client/theme"
 )
 
 type promptPalette struct {

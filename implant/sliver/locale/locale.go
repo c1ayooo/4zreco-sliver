@@ -22,7 +22,7 @@ package locale
 
 
 import (
-	"4zreco/sliver/implant/sliver/locale/jibberjabber"
+	"4zreco/var/sliver/implant/sliver/locale/jibberjabber"
 )
 
 // GetLocale returns the default language set

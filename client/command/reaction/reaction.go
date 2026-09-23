@@ -21,10 +21,10 @@ package reaction
 import (
 	"strings"
 
-	"4zreco/sliver/client/command/settings"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/client/core"
+	"4zreco/var/sliver/client/command/settings"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/client/core"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/spf13/cobra"
 )

@@ -32,8 +32,8 @@ import (
 	"google.golang.org/grpc/connectivity"
 	"google.golang.org/grpc/credentials"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/protobuf/rpcpb"
 )
 
 const (

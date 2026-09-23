@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	pb "4zreco/sliver/protobuf/sliverpb"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 	"google.golang.org/protobuf/proto"
 )
 

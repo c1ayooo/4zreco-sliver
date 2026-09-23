@@ -23,9 +23,9 @@ import (
 	"fmt"
 	"strings"
 
-	"4zreco/sliver/server/ai"
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/console/forms"
+	"4zreco/var/sliver/server/ai"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/console/forms"
 	"github.com/spf13/cobra"
 )
 

@@ -7,8 +7,8 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/util"
 	"golang.org/x/term"
 )
 

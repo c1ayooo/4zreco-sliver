@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	mcpapi "github.com/mark3labs/mcp-go/mcp"
 	mcpserver "github.com/mark3labs/mcp-go/server"
 )

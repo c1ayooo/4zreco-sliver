@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/client/console"
+	"4zreco/var/sliver/client/console"
 	opforengine "github.com/sliverarmory/opfor"
 	"github.com/spf13/cobra"
 )

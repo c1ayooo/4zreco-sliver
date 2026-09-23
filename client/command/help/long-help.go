@@ -28,8 +28,8 @@ import (
 	"strings"
 
 	"charm.land/lipgloss/v2"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/client/theme"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/client/theme"
 )
 
 const (

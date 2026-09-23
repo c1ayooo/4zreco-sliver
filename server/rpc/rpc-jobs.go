@@ -22,12 +22,12 @@ import (
 	"context"
 	"fmt"
 
-	"4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/server/c2"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db"
+	"4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/server/c2"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

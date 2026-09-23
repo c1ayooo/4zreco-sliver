@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"os"
 
-	"4zreco/sliver/client/assets"
+	"4zreco/var/sliver/client/assets"
 	"github.com/rsteube/carapace"
 	"github.com/spf13/cobra"
 )

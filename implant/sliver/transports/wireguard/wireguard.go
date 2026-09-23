@@ -43,10 +43,10 @@ import (
 	"log"
 	// {{end}}
 
-	"4zreco/sliver/implant/sliver/cryptography"
-	pb "4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/cryptography"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 
-	"4zreco/sliver/implant/sliver/netstack"
+	"4zreco/var/sliver/implant/sliver/netstack"
 	"golang.org/x/crypto/blake2b"
 	"golang.zx2c4.com/wireguard/device"
 	"golang.zx2c4.com/wireguard/tun"

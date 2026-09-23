@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/util/clientpbutil"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/util/clientpbutil"
 )
 
 const (

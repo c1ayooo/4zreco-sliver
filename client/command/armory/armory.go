@@ -32,12 +32,12 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/command/alias"
-	"4zreco/sliver/client/command/extensions"
-	"4zreco/sliver/client/command/settings"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/util/minisign"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/command/alias"
+	"4zreco/var/sliver/client/command/extensions"
+	"4zreco/var/sliver/client/command/settings"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/util/minisign"
 )
 
 // ArmoryIndex - Index JSON containing alias/extension/bundle information

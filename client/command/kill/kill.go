@@ -24,12 +24,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/core"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // KillCmd - Kill the active session (not to be confused with TerminateCmd)

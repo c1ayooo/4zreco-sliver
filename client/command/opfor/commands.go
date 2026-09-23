@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"4zreco/sliver/client/command/help"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
+	"4zreco/var/sliver/client/command/help"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
 	opforengine "github.com/sliverarmory/opfor"
 	"github.com/spf13/cobra"
 )

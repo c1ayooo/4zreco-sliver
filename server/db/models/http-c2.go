@@ -23,8 +23,8 @@ import (
 	"strings"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/util"
 	"github.com/gofrs/uuid"
 
 	"gorm.io/gorm"

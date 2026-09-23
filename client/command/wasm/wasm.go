@@ -25,12 +25,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/core"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/util"
-	"4zreco/sliver/util/encoders"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/util"
+	"4zreco/var/sliver/util/encoders"
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/proto"
 )

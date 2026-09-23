@@ -23,10 +23,10 @@ import (
 	"log"
 	"os"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/db"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/db"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

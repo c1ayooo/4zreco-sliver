@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"strings"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/forms"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/forms"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
 	"golang.org/x/term"

@@ -27,7 +27,7 @@ import (
 	"log"
 	// {{end}}
 
-	pb "4zreco/sliver/protobuf/sliverpb"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 )
 
 var (

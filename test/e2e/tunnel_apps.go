@@ -22,7 +22,7 @@ import (
 	"time"
 	"unicode"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 func tunnelHTTPDestination(rawURL string) (*url.URL, string, error) {

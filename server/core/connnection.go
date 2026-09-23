@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"github.com/gofrs/uuid"
 )
 

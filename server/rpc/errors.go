@@ -24,9 +24,9 @@ import (
 	"fmt"
 	"os"
 
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

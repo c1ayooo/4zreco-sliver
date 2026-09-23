@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	clientassets "4zreco/sliver/client/assets"
-	clienttransport "4zreco/sliver/client/transport"
-	"4zreco/sliver/server/certs"
+	clientassets "4zreco/var/sliver/client/assets"
+	clienttransport "4zreco/var/sliver/client/transport"
+	"4zreco/var/sliver/server/certs"
 )
 
 func TestRootOnlyVerifyCertificate(t *testing.T) {

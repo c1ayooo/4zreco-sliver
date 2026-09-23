@@ -26,7 +26,7 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/implant/sliver/pivots"
+	"4zreco/var/sliver/implant/sliver/pivots"
 )
 
 func framePrefix(n uint32) []byte {

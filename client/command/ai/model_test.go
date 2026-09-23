@@ -30,10 +30,10 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"4zreco/sliver/client/console"
-	aithinking "4zreco/sliver/client/spin/thinking"
-	clienttheme "4zreco/sliver/client/theme"
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/client/console"
+	aithinking "4zreco/var/sliver/client/spin/thinking"
+	clienttheme "4zreco/var/sliver/client/theme"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/charmbracelet/x/ansi"
 )
 

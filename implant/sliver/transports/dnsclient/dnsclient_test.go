@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/dnspb"
-	"4zreco/sliver/util/encoders"
+	"4zreco/var/sliver/protobuf/dnspb"
+	"4zreco/var/sliver/util/encoders"
 	"google.golang.org/protobuf/proto"
 )
 

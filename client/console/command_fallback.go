@@ -3,7 +3,7 @@ package console
 import (
 	"strings"
 
-	consts "4zreco/sliver/client/constants"
+	consts "4zreco/var/sliver/client/constants"
 	"github.com/reeflective/console"
 	"github.com/spf13/cobra"
 )

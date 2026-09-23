@@ -29,11 +29,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/util/leaky"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/util/leaky"
 )
 
 var (

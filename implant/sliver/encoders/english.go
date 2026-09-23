@@ -21,7 +21,7 @@ package encoders
 import (
 	"strings"
 
-	"4zreco/sliver/implant/sliver/util"
+	"4zreco/var/sliver/implant/sliver/util"
 )
 
 var dictionary map[int][]string

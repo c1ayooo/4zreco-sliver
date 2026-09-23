@@ -24,15 +24,15 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/implant/sliver/transports/mtls"
-	"4zreco/sliver/implant/sliver/transports/wireguard"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core/rtunnels"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/implant/sliver/transports/mtls"
+	"4zreco/var/sliver/implant/sliver/transports/wireguard"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core/rtunnels"
+	"4zreco/var/sliver/server/log"
 	"github.com/gofrs/uuid"
 
-	consts "4zreco/sliver/client/constants"
+	consts "4zreco/var/sliver/client/constants"
 )
 
 var (

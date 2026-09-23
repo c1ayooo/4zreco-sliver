@@ -1,11 +1,11 @@
 package info
 
 import (
-	"4zreco/sliver/client/command/flags"
-	"4zreco/sliver/client/command/help"
-	"4zreco/sliver/client/command/use"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
+	"4zreco/var/sliver/client/command/flags"
+	"4zreco/var/sliver/client/command/help"
+	"4zreco/var/sliver/client/command/use"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
 	"github.com/rsteube/carapace"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"

@@ -29,7 +29,7 @@ package handlers
 import (
 	"os"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 var (

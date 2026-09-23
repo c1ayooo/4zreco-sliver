@@ -32,11 +32,11 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/core/rtunnels"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/core/rtunnels"
+	"4zreco/var/sliver/server/log"
 
 	"google.golang.org/protobuf/proto"
 

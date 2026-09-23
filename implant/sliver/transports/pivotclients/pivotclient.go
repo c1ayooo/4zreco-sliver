@@ -31,10 +31,10 @@ import (
 	"log"
 	// {{end}}
 
-	consts "4zreco/sliver/implant/sliver/constants"
-	"4zreco/sliver/implant/sliver/cryptography"
-	"4zreco/sliver/implant/sliver/pivots"
-	pb "4zreco/sliver/protobuf/sliverpb"
+	consts "4zreco/var/sliver/implant/sliver/constants"
+	"4zreco/var/sliver/implant/sliver/cryptography"
+	"4zreco/var/sliver/implant/sliver/pivots"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 	"github.com/gofrs/uuid"
 	"google.golang.org/protobuf/proto"
 )

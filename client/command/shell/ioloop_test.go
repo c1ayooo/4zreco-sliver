@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/core"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/core"
 )
 
 func TestIsShellExitCommand(t *testing.T) {

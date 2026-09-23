@@ -21,11 +21,11 @@ package rpc
 import (
 	"context"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/loot"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/loot"
 )
 
 // LootAdd - Add loot

@@ -30,14 +30,14 @@ import (
 	"strings"
 	"sync"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/util"
 
-	encutil "4zreco/sliver/util/encoders"
-	"4zreco/sliver/util/encoders/traffic"
+	encutil "4zreco/var/sliver/util/encoders"
+	"4zreco/var/sliver/util/encoders/traffic"
 )
 
 const (

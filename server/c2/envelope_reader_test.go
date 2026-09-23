@@ -10,8 +10,8 @@ import (
 	"runtime"
 	"testing"
 
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/util/minisign"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/util/minisign"
 )
 
 type readSizeRecorder struct {

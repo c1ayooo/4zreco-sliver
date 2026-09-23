@@ -12,10 +12,10 @@ import (
 	"strings"
 	"testing"
 
-	implantMTLS "4zreco/sliver/implant/sliver/transports/mtls"
-	"4zreco/sliver/protobuf/sliverpb"
-	serverCrypto "4zreco/sliver/server/cryptography"
-	"4zreco/sliver/util/minisign"
+	implantMTLS "4zreco/var/sliver/implant/sliver/transports/mtls"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	serverCrypto "4zreco/var/sliver/server/cryptography"
+	"4zreco/var/sliver/util/minisign"
 	"golang.org/x/crypto/blake2b"
 	"google.golang.org/protobuf/proto"
 )

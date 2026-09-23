@@ -21,9 +21,9 @@ package sessions
 import (
 	"context"
 
-	"4zreco/sliver/client/command/kill"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/client/command/kill"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/commonpb"
 	"github.com/spf13/cobra"
 )
 

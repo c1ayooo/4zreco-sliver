@@ -4,11 +4,11 @@ import (
 	"context"
 	"strings"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	serverai "4zreco/sliver/server/ai"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	serverai "4zreco/var/sliver/server/ai"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db"
 	"google.golang.org/protobuf/proto"
 )
 

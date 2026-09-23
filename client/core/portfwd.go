@@ -31,11 +31,11 @@ import (
 	"time"
 	"unicode"
 
-	"4zreco/sliver/client/tcpproxy"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/tcpproxy"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 var (

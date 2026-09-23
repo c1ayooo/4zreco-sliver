@@ -1,4 +1,4 @@
-module 4zreco/sliver
+module 4zreco/var/sliver
 
 go 1.26.6
 

@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"charm.land/huh/v2"
-	"4zreco/sliver/client/theme"
+	"4zreco/var/sliver/client/theme"
 )
 
 // ArmoryInstallOption represents an armory install option.

@@ -7,9 +7,9 @@ import (
 	"net"
 	"time"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 const tunnelSessionDisconnectTimeout = 20 * time.Second

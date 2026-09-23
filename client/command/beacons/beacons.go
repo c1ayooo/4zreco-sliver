@@ -28,11 +28,11 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"4zreco/sliver/client/command/kill"
-	"4zreco/sliver/client/command/settings"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/client/command/kill"
+	"4zreco/var/sliver/client/command/settings"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
 )
 
 // BeaconsCmd - Display/interact with beacons

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net"
 
-	"4zreco/sliver/server/certs"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/server/certs"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/log"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 )

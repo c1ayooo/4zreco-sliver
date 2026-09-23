@@ -24,10 +24,10 @@ import (
 	"strconv"
 	"syscall"
 
-	"4zreco/sliver/implant/sliver/extension"
-	"4zreco/sliver/implant/sliver/mount"
-	"4zreco/sliver/protobuf/commonpb"
-	pb "4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/extension"
+	"4zreco/var/sliver/implant/sliver/mount"
+	"4zreco/var/sliver/protobuf/commonpb"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 	"google.golang.org/protobuf/proto"
 )
 

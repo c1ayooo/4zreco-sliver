@@ -34,10 +34,10 @@ import (
 	"net"
 	"time"
 
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/util"
 )
 
 const (

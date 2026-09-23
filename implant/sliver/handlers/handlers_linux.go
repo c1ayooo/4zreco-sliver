@@ -27,12 +27,12 @@ import (
 	"syscall"
 	"time"
 
-	"4zreco/sliver/implant/sliver/extension"
-	"4zreco/sliver/implant/sliver/mount"
-	"4zreco/sliver/implant/sliver/procdump"
-	"4zreco/sliver/implant/sliver/taskrunner"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/extension"
+	"4zreco/var/sliver/implant/sliver/mount"
+	"4zreco/var/sliver/implant/sliver/procdump"
+	"4zreco/var/sliver/implant/sliver/taskrunner"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"golang.org/x/sys/unix"
 	"google.golang.org/protobuf/proto"
 

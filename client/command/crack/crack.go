@@ -27,10 +27,10 @@ import (
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/command/settings"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/client/command/settings"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
 )
 
 // CrackCmd - GPU password cracking interface

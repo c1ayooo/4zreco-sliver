@@ -18,12 +18,12 @@ import (
 	"strings"
 	"time"
 
-	"4zreco/sliver/client/command/armory"
-	"4zreco/sliver/client/command/extensions"
-	"4zreco/sliver/client/core"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/util/minisign"
+	"4zreco/var/sliver/client/command/armory"
+	"4zreco/var/sliver/client/command/extensions"
+	"4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/util/minisign"
 )
 
 const (

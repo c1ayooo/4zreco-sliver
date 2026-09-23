@@ -6,8 +6,8 @@ import (
 	insecureRand "math/rand"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
 	"github.com/gofrs/uuid"
 )
 

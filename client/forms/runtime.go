@@ -5,7 +5,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/huh/v2"
-	"4zreco/sliver/client/termio"
+	"4zreco/var/sliver/client/termio"
 	"golang.org/x/term"
 )
 

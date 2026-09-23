@@ -24,11 +24,11 @@ import (
 	"os"
 	"testing"
 
-	implantCrypto "4zreco/sliver/implant/sliver/cryptography"
-	"4zreco/sliver/server/certs"
-	"4zreco/sliver/server/cryptography"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
+	implantCrypto "4zreco/var/sliver/implant/sliver/cryptography"
+	"4zreco/var/sliver/server/certs"
+	"4zreco/var/sliver/server/cryptography"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
 )
 
 var (

@@ -25,9 +25,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/server/transport"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/server/transport"
 )
 
 var (

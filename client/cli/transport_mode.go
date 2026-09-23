@@ -3,7 +3,7 @@ package cli
 import (
 	"fmt"
 
-	"4zreco/sliver/client/transport"
+	"4zreco/var/sliver/client/transport"
 	"github.com/spf13/cobra"
 )
 

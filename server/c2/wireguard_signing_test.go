@@ -9,9 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	implantWG "4zreco/sliver/implant/sliver/transports/wireguard"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/util/minisign"
+	implantWG "4zreco/var/sliver/implant/sliver/transports/wireguard"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/util/minisign"
 )
 
 func TestWGSocketReadEnvelopeAcceptsValidSignature(t *testing.T) {

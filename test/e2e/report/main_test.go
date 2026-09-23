@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	e2ecoverage "4zreco/sliver/test/e2e/coverage"
+	e2ecoverage "4zreco/var/sliver/test/e2e/coverage"
 )
 
 func TestRunWritesReportsAndFailsForFailedRecords(t *testing.T) {

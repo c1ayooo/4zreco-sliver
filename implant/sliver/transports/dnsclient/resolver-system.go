@@ -28,7 +28,7 @@ import (
 	"log"
 	// {{end}}
 
-	"4zreco/sliver/implant/sliver/encoders"
+	"4zreco/var/sliver/implant/sliver/encoders"
 )
 
 // NewSystemResolver - Initialize a new system resolver

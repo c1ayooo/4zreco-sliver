@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/configs"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/configs"
 	"github.com/openai/openai-go/v2/shared"
 )
 

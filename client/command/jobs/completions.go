@@ -23,8 +23,8 @@ import (
 	"sort"
 	"strings"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/commonpb"
 	"github.com/rsteube/carapace"
 	"github.com/spf13/cobra"
 )

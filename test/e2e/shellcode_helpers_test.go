@@ -7,7 +7,7 @@ import (
 	"testing"
 	"unicode/utf8"
 
-	"4zreco/sliver/test/e2e/shellcodecoverage"
+	"4zreco/var/sliver/test/e2e/shellcodecoverage"
 )
 
 func TestShellcodeExecutionProtection(t *testing.T) {

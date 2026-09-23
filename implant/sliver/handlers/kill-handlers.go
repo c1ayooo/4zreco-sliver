@@ -24,8 +24,8 @@ import (
 	"os"
 	"time"
 
-	"4zreco/sliver/implant/sliver/transports"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/transports"
+	"4zreco/var/sliver/protobuf/sliverpb"
 
 	// {{if .Config.Debug}}
 	"log"

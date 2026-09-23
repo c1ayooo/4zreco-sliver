@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	mcpserver "github.com/mark3labs/mcp-go/server"
 )
 

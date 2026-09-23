@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 func newUnitSocksTunnel(id uint64, sessionID string) *TcpTunnel {

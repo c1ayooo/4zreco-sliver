@@ -34,7 +34,7 @@ import (
 	// {{if .Config.IncludeMTLS}}
 	"crypto/tls"
 
-	"4zreco/sliver/implant/sliver/transports/mtls"
+	"4zreco/var/sliver/implant/sliver/transports/mtls"
 
 	// {{end}}
 
@@ -46,13 +46,13 @@ import (
 	// {{end}}
 
 	// {{if .Config.IncludeHTTP}}
-	"4zreco/sliver/implant/sliver/transports/httpclient"
+	"4zreco/var/sliver/implant/sliver/transports/httpclient"
 	// {{end}}
 
 	// {{if .Config.IncludeWG}}
 	"net"
 
-	"4zreco/sliver/implant/sliver/transports/wireguard"
+	"4zreco/var/sliver/implant/sliver/transports/wireguard"
 	"golang.zx2c4.com/wireguard/device"
 
 	// {{end}}
@@ -63,11 +63,11 @@ import (
 
 	// {{if .Config.IncludeDNS}}
 
-	"4zreco/sliver/implant/sliver/transports/dnsclient"
+	"4zreco/var/sliver/implant/sliver/transports/dnsclient"
 	// {{end}}
 
-	"4zreco/sliver/implant/sliver/util"
-	pb "4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/util"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 )
 
 var (

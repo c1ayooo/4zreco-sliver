@@ -27,7 +27,7 @@ import "C"
 // {{end}}
 
 import (
-	"4zreco/sliver/implant/sliver/runner"
+	"4zreco/var/sliver/implant/sliver/runner"
 )
 
 // {{if or .Config.IsSharedLib .Config.IsShellcode}}

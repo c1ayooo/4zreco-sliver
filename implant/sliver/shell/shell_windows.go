@@ -24,7 +24,7 @@ import (
 	// {{end}}
 
 	"context"
-	"4zreco/sliver/implant/sliver/priv"
+	"4zreco/var/sliver/implant/sliver/priv"
 	"golang.org/x/sys/windows"
 	"os/exec"
 	"syscall"

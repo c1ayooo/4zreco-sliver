@@ -9,9 +9,9 @@ import (
 	"text/tabwriter"
 	"time"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/rsteube/carapace"
 )
 

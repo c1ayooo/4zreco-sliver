@@ -9,10 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/core"
-	"4zreco/sliver/client/transport"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/client/transport"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/connectivity"
 )

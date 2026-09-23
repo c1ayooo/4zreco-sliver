@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/client/transport"
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/client/transport"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	"google.golang.org/grpc"
 )
 

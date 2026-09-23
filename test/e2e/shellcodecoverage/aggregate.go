@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	coverage "4zreco/sliver/test/e2e/coverage"
+	coverage "4zreco/var/sliver/test/e2e/coverage"
 )
 
 const (

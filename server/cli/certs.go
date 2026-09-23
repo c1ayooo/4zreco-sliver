@@ -25,7 +25,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"4zreco/sliver/server/certs"
+	"4zreco/var/sliver/server/certs"
 	"github.com/spf13/cobra"
 )
 

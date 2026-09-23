@@ -22,8 +22,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/log"
 	"golang.org/x/crypto/acme/autocert"
 )
 

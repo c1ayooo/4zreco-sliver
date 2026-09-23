@@ -3,7 +3,7 @@ package generate
 import (
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 func TestNameOfOutputFormatGoArchive(t *testing.T) {

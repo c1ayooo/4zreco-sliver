@@ -5,9 +5,9 @@ import (
 	"strings"
 
 	"charm.land/huh/v2"
-	"4zreco/sliver/client/theme"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/client/theme"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/util"
 )
 
 // ErrUserAborted exposes the huh user-abort sentinel for callers.

@@ -25,11 +25,11 @@ import (
 	"net/netip"
 	"strings"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
-	"4zreco/sliver/server/log"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
+	"4zreco/var/sliver/server/log"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 	"gorm.io/gorm"
 )

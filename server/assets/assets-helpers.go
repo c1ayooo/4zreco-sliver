@@ -39,8 +39,8 @@ import (
 	"strconv"
 	"strings"
 
-	protobufs "4zreco/sliver/protobuf"
-	"4zreco/sliver/util"
+	protobufs "4zreco/var/sliver/protobuf"
+	"4zreco/var/sliver/util"
 	"github.com/ulikunitz/xz"
 )
 

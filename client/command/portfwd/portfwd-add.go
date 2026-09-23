@@ -24,9 +24,9 @@ import (
 	"regexp"
 	"time"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/core"
-	"4zreco/sliver/client/tcpproxy"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/client/tcpproxy"
 	"github.com/spf13/cobra"
 )
 

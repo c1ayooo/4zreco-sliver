@@ -26,8 +26,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/commonpb"
 )
 
 // BeaconsWatchCmd - Watch your beacons in real-ish time

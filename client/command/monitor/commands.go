@@ -3,8 +3,8 @@ package monitor
 import (
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
 )
 
 // Commands returns the “ command and its subcommands.

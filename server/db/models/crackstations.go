@@ -22,7 +22,7 @@ import (
 	"math"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/gofrs/uuid"
 	"gorm.io/gorm"
 )

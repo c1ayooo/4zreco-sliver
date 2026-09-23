@@ -7,9 +7,9 @@
 package rpcpb
 
 import (
-	clientpb "4zreco/sliver/protobuf/clientpb"
-	commonpb "4zreco/sliver/protobuf/commonpb"
-	sliverpb "4zreco/sliver/protobuf/sliverpb"
+	clientpb "4zreco/var/sliver/protobuf/clientpb"
+	commonpb "4zreco/var/sliver/protobuf/commonpb"
+	sliverpb "4zreco/var/sliver/protobuf/sliverpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

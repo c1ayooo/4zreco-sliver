@@ -8,8 +8,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
 	"google.golang.org/protobuf/proto"
 )
 

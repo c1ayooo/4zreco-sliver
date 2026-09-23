@@ -3,8 +3,8 @@ package rpc
 import (
 	"context"
 
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // Ping - Try to send a round trip message to the implant

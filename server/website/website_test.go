@@ -25,8 +25,8 @@ import (
 	insecureRand "math/rand"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/db"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/db"
 )
 
 const (

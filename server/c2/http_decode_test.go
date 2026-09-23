@@ -25,7 +25,7 @@ import (
 	"image/png"
 	"testing"
 
-	sliverEncoders "4zreco/sliver/util/encoders"
+	sliverEncoders "4zreco/var/sliver/util/encoders"
 )
 
 func TestDecodeReqBodyWithMaxLenRejectsOversizedPNG(t *testing.T) {

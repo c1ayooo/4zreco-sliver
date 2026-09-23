@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"strings"
 
-	"4zreco/sliver/client/version"
+	"4zreco/var/sliver/client/version"
 )
 
 // Transport identifies the MCP server transport to expose.

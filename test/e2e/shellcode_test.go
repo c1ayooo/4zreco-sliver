@@ -3,8 +3,8 @@ package e2e
 import (
 	"testing"
 
-	e2ecoverage "4zreco/sliver/test/e2e/coverage"
-	"4zreco/sliver/test/e2e/shellcodecoverage"
+	e2ecoverage "4zreco/var/sliver/test/e2e/coverage"
+	"4zreco/var/sliver/test/e2e/shellcodecoverage"
 )
 
 func TestShellcodeE2E(t *testing.T) {

@@ -30,11 +30,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/implant/sliver/handlers/matcher"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/util/encoders"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/implant/sliver/handlers/matcher"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/util/encoders"
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/proto"
 )

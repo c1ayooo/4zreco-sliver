@@ -28,9 +28,9 @@ import (
 	"sync"
 	"time"
 
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/util"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

@@ -21,7 +21,7 @@ package credentials
 import (
 	"strings"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 // See EXAMPLES.md for example hashes, right now we just pick off low

@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"4zreco/sliver/implant/sliver/syscalls"
+	"4zreco/var/sliver/implant/sliver/syscalls"
 	"golang.org/x/sys/windows"
 )
 

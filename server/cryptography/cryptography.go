@@ -36,9 +36,9 @@ import (
 	"sync"
 
 	"filippo.io/age"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/util/encoders"
-	"4zreco/sliver/util/minisign"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/util/encoders"
+	"4zreco/var/sliver/util/minisign"
 	"golang.org/x/crypto/chacha20poly1305"
 )
 

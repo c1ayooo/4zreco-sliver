@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/client/assets"
+	"4zreco/var/sliver/client/assets"
 )
 
 func TestWireGuardTunnelCacheKeyIncludesConfigMaterial(t *testing.T) {

@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	serverassets "4zreco/sliver/server/assets"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	serverassets "4zreco/var/sliver/server/assets"
 )
 
 func TestSearchAliasesIncludesTargetCompatibility(t *testing.T) {

@@ -26,8 +26,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"4zreco/sliver/server/log"
-	ver "4zreco/sliver/server/version"
+	"4zreco/var/sliver/server/log"
+	ver "4zreco/var/sliver/server/version"
 )
 
 const (

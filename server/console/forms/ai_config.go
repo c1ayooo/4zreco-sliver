@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"charm.land/huh/v2"
-	"4zreco/sliver/server/ai"
+	"4zreco/var/sliver/server/ai"
 )
 
 // AIConfigFormResult captures the server-side AI configuration collected from the form.

@@ -35,7 +35,7 @@ import (
 	"github.com/chromedp/cdproto/target"
 	"github.com/chromedp/chromedp"
 
-	"4zreco/sliver/client/core"
+	"4zreco/var/sliver/client/core"
 )
 
 const (

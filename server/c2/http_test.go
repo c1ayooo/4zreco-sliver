@@ -27,12 +27,12 @@ package c2
 // 	"net/url"
 // 	"testing"
 
-// 	implantCrypto "4zreco/sliver/implant/sliver/cryptography"
-// 	implantEncoders "4zreco/sliver/implant/sliver/encoders"
-// 	implantTransports "4zreco/sliver/implant/sliver/transports/httpclient"
-// 	"4zreco/sliver/protobuf/sliverpb"
-// 	"4zreco/sliver/server/configs"
-// 	"4zreco/sliver/server/cryptography"
+// 	implantCrypto "4zreco/var/sliver/implant/sliver/cryptography"
+// 	implantEncoders "4zreco/var/sliver/implant/sliver/encoders"
+// 	implantTransports "4zreco/var/sliver/implant/sliver/transports/httpclient"
+// 	"4zreco/var/sliver/protobuf/sliverpb"
+// 	"4zreco/var/sliver/server/configs"
+// 	"4zreco/var/sliver/server/cryptography"
 // 	"google.golang.org/protobuf/proto"
 // )
 

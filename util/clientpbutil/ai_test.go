@@ -3,7 +3,7 @@ package clientpbutil
 import (
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 func TestAIConversationMessageIncludesContextHonorsExplicitFlag(t *testing.T) {

@@ -5,11 +5,11 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 
-	"4zreco/sliver/client/command/flags"
-	"4zreco/sliver/client/command/generate"
-	"4zreco/sliver/client/command/help"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
+	"4zreco/var/sliver/client/command/flags"
+	"4zreco/var/sliver/client/command/generate"
+	"4zreco/var/sliver/client/command/help"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
 )
 
 // Commands returns the “ command and its subcommands.

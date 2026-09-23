@@ -22,9 +22,9 @@ import (
 	"context"
 	"fmt"
 
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/proto"
 )

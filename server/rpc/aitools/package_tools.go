@@ -8,12 +8,12 @@ import (
 	"sort"
 	"strings"
 
-	"4zreco/sliver/client/packages"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	serverai "4zreco/sliver/server/ai"
-	serverassets "4zreco/sliver/server/assets"
+	"4zreco/var/sliver/client/packages"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	serverai "4zreco/var/sliver/server/ai"
+	serverassets "4zreco/var/sliver/server/assets"
 )
 
 const (

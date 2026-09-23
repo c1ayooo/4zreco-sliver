@@ -26,11 +26,11 @@ import (
 	// {{end}}
 	"time"
 
-	rportfwd "4zreco/sliver/implant/sliver/rportfwd"
-	"4zreco/sliver/implant/sliver/tcpproxy"
-	"4zreco/sliver/implant/sliver/transports"
-	"4zreco/sliver/protobuf/commonpb"
-	pb "4zreco/sliver/protobuf/sliverpb"
+	rportfwd "4zreco/var/sliver/implant/sliver/rportfwd"
+	"4zreco/var/sliver/implant/sliver/tcpproxy"
+	"4zreco/var/sliver/implant/sliver/transports"
+	"4zreco/var/sliver/protobuf/commonpb"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 	"google.golang.org/protobuf/proto"
 )
 

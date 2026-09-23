@@ -22,7 +22,7 @@ import (
 	"net/url"
 	"strings"
 
-	"4zreco/sliver/implant/sliver/winhttp"
+	"4zreco/var/sliver/implant/sliver/winhttp"
 )
 
 /*

@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/transport"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/transport"
 	"github.com/spf13/cobra"
 )
 

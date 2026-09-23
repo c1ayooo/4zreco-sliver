@@ -21,7 +21,7 @@ package main
 */
 
 import (
-	"4zreco/sliver/server/cli"
+	"4zreco/var/sliver/server/cli"
 )
 
 func main() {

@@ -21,12 +21,12 @@ package rpc
 import (
 	"context"
 
-	"4zreco/sliver/client/credentials"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/client/credentials"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
+	"4zreco/var/sliver/server/log"
 	"github.com/gofrs/uuid"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

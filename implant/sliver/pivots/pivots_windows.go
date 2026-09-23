@@ -19,7 +19,7 @@ package pivots
 */
 
 import (
-	pb "4zreco/sliver/protobuf/sliverpb"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 )
 
 var SupportedPivotListeners = map[pb.PivotType]CreateListener{

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"4zreco/sliver/client/assets"
+	"4zreco/var/sliver/client/assets"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/connectivity"
 	"google.golang.org/grpc/credentials/insecure"

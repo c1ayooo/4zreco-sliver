@@ -35,15 +35,15 @@ import (
 	"github.com/spf13/cobra"
 	"gorm.io/gorm"
 
-	clientassets "4zreco/sliver/client/assets"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/certs"
-	"4zreco/sliver/server/console/forms"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
-	"4zreco/sliver/server/transport"
+	clientassets "4zreco/var/sliver/client/assets"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/certs"
+	"4zreco/var/sliver/server/console/forms"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
+	"4zreco/var/sliver/server/transport"
 )
 
 const (

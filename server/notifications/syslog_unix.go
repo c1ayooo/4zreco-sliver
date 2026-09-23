@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"4zreco/sliver/server/configs"
+	"4zreco/var/sliver/server/configs"
 	"github.com/nikoksr/notify"
 	notifysyslog "github.com/nikoksr/notify/service/syslog"
 )

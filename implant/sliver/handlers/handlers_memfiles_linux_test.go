@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"golang.org/x/sys/unix"
 	"google.golang.org/protobuf/proto"
 )

@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 	openai "github.com/openai/openai-go/v2"
 	openairesponses "github.com/openai/openai-go/v2/responses"
 	"github.com/openai/openai-go/v2/shared"

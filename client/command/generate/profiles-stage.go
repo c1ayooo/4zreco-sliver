@@ -25,8 +25,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 // ProfilesStageCmd - Generate an encrypted/compressed implant binary based on a profile

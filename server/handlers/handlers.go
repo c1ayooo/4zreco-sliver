@@ -28,9 +28,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/core/rtunnels"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/core/rtunnels"
 )
 
 type ServerHandler func(*core.ImplantConnection, []byte) *sliverpb.Envelope

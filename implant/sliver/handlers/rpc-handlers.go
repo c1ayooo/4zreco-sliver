@@ -27,12 +27,12 @@ import (
 	"log"
 	// {{end}}
 
-	"4zreco/sliver/implant/sliver/netstat"
-	"4zreco/sliver/implant/sliver/ps"
-	"4zreco/sliver/implant/sliver/shell/ssh"
-	"4zreco/sliver/implant/sliver/taskrunner"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/netstat"
+	"4zreco/var/sliver/implant/sliver/ps"
+	"4zreco/var/sliver/implant/sliver/shell/ssh"
+	"4zreco/var/sliver/implant/sliver/taskrunner"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 
 	"google.golang.org/protobuf/proto"
 )

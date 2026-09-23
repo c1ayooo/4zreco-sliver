@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	coverage "4zreco/sliver/test/e2e/coverage"
-	shellcodecoverage "4zreco/sliver/test/e2e/shellcodecoverage"
+	coverage "4zreco/var/sliver/test/e2e/coverage"
+	shellcodecoverage "4zreco/var/sliver/test/e2e/shellcodecoverage"
 )
 
 func TestRunWritesPassingReports(t *testing.T) {

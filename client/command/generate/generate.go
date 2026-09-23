@@ -36,14 +36,14 @@ import (
 	"time"
 
 	"github.com/Binject/debug/pe"
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/client/spin"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/client/spin"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/util"
 	"github.com/spf13/cobra"
 )
 

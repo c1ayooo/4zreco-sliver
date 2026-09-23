@@ -3,10 +3,10 @@ package licenses
 import (
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/command/help"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/client/licenses"
+	"4zreco/var/sliver/client/command/help"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/client/licenses"
 )
 
 // Commands returns the `licences` command.

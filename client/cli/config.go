@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"sort"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/forms"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/forms"
 )
 
 func selectConfig() (string, *assets.ClientConfig) {

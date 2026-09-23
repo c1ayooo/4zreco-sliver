@@ -21,7 +21,7 @@ package command
 import (
 	"strings"
 
-	client "4zreco/sliver/client/console"
+	client "4zreco/var/sliver/client/console"
 	"github.com/reeflective/console"
 	"github.com/rsteube/carapace"
 	"github.com/spf13/cobra"

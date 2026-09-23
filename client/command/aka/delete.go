@@ -1,7 +1,7 @@
 package aka
 
 import (
-	"4zreco/sliver/client/console"
+	"4zreco/var/sliver/client/console"
 	"github.com/spf13/cobra"
 )
 

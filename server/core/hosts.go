@@ -21,10 +21,10 @@ package core
 import (
 	"errors"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
-	"4zreco/sliver/server/log"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
+	"4zreco/var/sliver/server/log"
 	"github.com/gofrs/uuid"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

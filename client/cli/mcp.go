@@ -23,10 +23,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/console"
-	clientmcp "4zreco/sliver/client/mcp"
-	"4zreco/sliver/client/transport"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/console"
+	clientmcp "4zreco/var/sliver/client/mcp"
+	"4zreco/var/sliver/client/transport"
 	"github.com/spf13/cobra"
 )
 

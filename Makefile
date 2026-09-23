@@ -32,8 +32,8 @@ GO_VERSION_VALIDATION_ERR_MSG = Golang version is not supported, please update t
 SLIVER_PUBLIC_KEY ?= RWTZPg959v3b7tLG7VzKHRB1/QT+d3c71Uzetfa44qAoX5rH7mGoQTTR
 ARMORY_PUBLIC_KEY ?= RWSBpxpRWDrD7Fe+VvRE3c2VEDC2NK80rlNCj+BX0gz44Xw07r6KQD9L
 ARMORY_REPO_URL ?= https://api.github.com/repos/sliverarmory/armory/releases
-CLIENT_ASSETS_PKG = 4zreco/sliver/client/assets
-SLIVER_UPDATE_PKG = 4zreco/sliver/client/command/update
+CLIENT_ASSETS_PKG = 4zreco/var/sliver/client/assets
+SLIVER_UPDATE_PKG = 4zreco/var/sliver/client/command/update
 PB_COMPILERS = protoc protoc-gen-go protoc-gen-go-grpc
 
 .PHONY: lint

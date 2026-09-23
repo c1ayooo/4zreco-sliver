@@ -8,7 +8,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // ErrTunnelClosed and the related errors report rejected tunnel operations.

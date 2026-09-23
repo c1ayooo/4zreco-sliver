@@ -27,9 +27,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
 )
 
 // -----------------------

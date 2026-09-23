@@ -26,7 +26,7 @@ import (
 	"strconv"
 	"strings"
 
-	"4zreco/sliver/implant/sliver/util"
+	"4zreco/var/sliver/implant/sliver/util"
 
 	// {{if .Config.Debug}}
 	"log"
@@ -37,7 +37,7 @@ import (
 	// {{end}}
 
 	// {{if .Config.TrafficEncodersEnabled}}
-	"4zreco/sliver/implant/sliver/encoders/traffic"
+	"4zreco/var/sliver/implant/sliver/encoders/traffic"
 	// {{end}}
 )
 

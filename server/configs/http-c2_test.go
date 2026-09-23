@@ -21,7 +21,7 @@ package configs
 import (
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 func TestCoerceHeaderProbability(t *testing.T) {

@@ -13,7 +13,7 @@ import (
 
 	insecureRand "math/rand"
 
-	minisign "4zreco/sliver/util/minisign"
+	minisign "4zreco/var/sliver/util/minisign"
 )
 
 type zigPlatform struct {

@@ -25,8 +25,8 @@ import (
 
 	"encoding/json"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/overlord"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/overlord"
 	"github.com/spf13/cobra"
 )
 

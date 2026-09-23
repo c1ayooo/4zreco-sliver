@@ -1,6 +1,6 @@
 package clientpbutil
 
-import "4zreco/sliver/protobuf/clientpb"
+import "4zreco/var/sliver/protobuf/clientpb"
 
 // AIConversationMessageIncludesContext reports whether a message should be
 // included in the model-visible context window.

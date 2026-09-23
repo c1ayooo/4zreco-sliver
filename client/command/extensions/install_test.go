@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/console"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/console"
 	"github.com/klauspost/compress/gzip"
 	"github.com/spf13/cobra"
 )

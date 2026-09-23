@@ -29,7 +29,7 @@ import (
 	"net"
 	"sync"
 
-	"4zreco/sliver/implant/sliver/netstack"
+	"4zreco/var/sliver/implant/sliver/netstack"
 )
 
 var tcpForwarderID = 0

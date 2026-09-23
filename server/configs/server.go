@@ -23,8 +23,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/log"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v3"
 )

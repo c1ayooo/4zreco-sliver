@@ -28,11 +28,11 @@ import (
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/proto"
 
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
 )
 
 // MigrateCmd - Windows only, inject an implant into another process

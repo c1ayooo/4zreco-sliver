@@ -34,23 +34,23 @@ import (
 	"encoding/binary"
 	"sync"
 
-	sleepcrypt "4zreco/sliver/implant/sliver/evasion/sleepcrypt"
+	sleepcrypt "4zreco/var/sliver/implant/sliver/evasion/sleepcrypt"
 	// {{end}}
 
 	// {{if .Config.Debug}}
 	"log"
 	// {{end}}
 
-	consts "4zreco/sliver/implant/sliver/constants"
-	"4zreco/sliver/implant/sliver/evasion"
-	"4zreco/sliver/implant/sliver/handlers"
-	"4zreco/sliver/implant/sliver/hostuuid"
-	"4zreco/sliver/implant/sliver/limits"
-	"4zreco/sliver/implant/sliver/locale"
-	"4zreco/sliver/implant/sliver/pivots"
-	"4zreco/sliver/implant/sliver/transports"
-	"4zreco/sliver/implant/sliver/version"
-	"4zreco/sliver/protobuf/sliverpb"
+	consts "4zreco/var/sliver/implant/sliver/constants"
+	"4zreco/var/sliver/implant/sliver/evasion"
+	"4zreco/var/sliver/implant/sliver/handlers"
+	"4zreco/var/sliver/implant/sliver/hostuuid"
+	"4zreco/var/sliver/implant/sliver/limits"
+	"4zreco/var/sliver/implant/sliver/locale"
+	"4zreco/var/sliver/implant/sliver/pivots"
+	"4zreco/var/sliver/implant/sliver/transports"
+	"4zreco/var/sliver/implant/sliver/version"
+	"4zreco/var/sliver/protobuf/sliverpb"
 
 	"github.com/gofrs/uuid"
 	"google.golang.org/protobuf/proto"

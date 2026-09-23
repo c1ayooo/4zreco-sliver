@@ -16,8 +16,8 @@ import (
 	"sync"
 	"time"
 
-	clientcore "4zreco/sliver/client/core"
-	"4zreco/sliver/protobuf/clientpb"
+	clientcore "4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/things-go/go-socks5/statute"
 	"golang.org/x/net/proxy"
 )

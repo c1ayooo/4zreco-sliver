@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/test/e2e/shellcodecoverage"
+	"4zreco/var/sliver/test/e2e/shellcodecoverage"
 )
 
 var testOptions options

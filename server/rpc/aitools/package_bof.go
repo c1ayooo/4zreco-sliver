@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"4zreco/sliver/client/core"
+	"4zreco/var/sliver/client/core"
 )
 
 func buildBOFExtensionArgs(command *aiExtensionCommand, bofData []byte, args []string) ([]byte, error) {

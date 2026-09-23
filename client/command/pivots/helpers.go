@@ -27,9 +27,9 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"github.com/rsteube/carapace"
 )
 

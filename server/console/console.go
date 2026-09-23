@@ -27,13 +27,13 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 
-	"4zreco/sliver/client/command"
-	"4zreco/sliver/client/command/help"
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
-	clienttransport "4zreco/sliver/client/transport"
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/server/transport"
+	"4zreco/var/sliver/client/command"
+	"4zreco/var/sliver/client/command/help"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
+	clienttransport "4zreco/var/sliver/client/transport"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/server/transport"
 	"google.golang.org/grpc"
 )
 

@@ -1,9 +1,9 @@
 package mcp
 
 import (
-	"4zreco/sliver/client/command/settings"
-	"4zreco/sliver/client/console"
-	slivermcp "4zreco/sliver/client/mcp"
+	"4zreco/var/sliver/client/command/settings"
+	"4zreco/var/sliver/client/console"
+	slivermcp "4zreco/var/sliver/client/mcp"
 	"github.com/spf13/cobra"
 )
 

@@ -26,9 +26,9 @@ import (
 
 	// {{end}}
 
-	"4zreco/sliver/implant/sliver/handlers/tunnel_handlers"
-	"4zreco/sliver/protobuf/commonpb"
-	pb "4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/handlers/tunnel_handlers"
+	"4zreco/var/sliver/protobuf/commonpb"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 	"google.golang.org/protobuf/proto"
 )
 

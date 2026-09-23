@@ -21,7 +21,7 @@ package db
 */
 
 import (
-	"4zreco/sliver/server/configs"
+	"4zreco/var/sliver/server/configs"
 	_ "github.com/mattn/go-sqlite3"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

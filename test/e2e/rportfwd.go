@@ -10,12 +10,12 @@ import (
 	"sync"
 	"time"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	e2ecoverage "4zreco/sliver/test/e2e/coverage"
-	"4zreco/sliver/test/e2e/rportfwdcoverage"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	e2ecoverage "4zreco/var/sliver/test/e2e/coverage"
+	"4zreco/var/sliver/test/e2e/rportfwdcoverage"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

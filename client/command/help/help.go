@@ -22,8 +22,8 @@ package help
 // 	"fmt"
 // 	"sort"
 //
-// 	"4zreco/sliver/client/console"
-// 	consts "4zreco/sliver/client/constants"
+// 	"4zreco/var/sliver/client/console"
+// 	consts "4zreco/var/sliver/client/constants"
 //
 // 	"github.com/desertbit/columnize"
 // 	"github.com/desertbit/grumble"

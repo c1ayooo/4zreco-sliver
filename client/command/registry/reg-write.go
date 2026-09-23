@@ -29,9 +29,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // RegWriteCmd - Write to a Windows registry key: registry write --hive HKCU --type dword "software\google\chrome\blbeacon\hello" 32

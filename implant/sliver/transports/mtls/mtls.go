@@ -40,8 +40,8 @@ import (
 	"os"
 	"strings"
 
-	"4zreco/sliver/implant/sliver/cryptography"
-	pb "4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/implant/sliver/cryptography"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 	"golang.org/x/crypto/blake2b"
 	"google.golang.org/protobuf/proto"
 )

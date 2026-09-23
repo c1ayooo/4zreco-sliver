@@ -31,7 +31,7 @@ import (
 	"sync"
 	"syscall"
 
-	"4zreco/sliver/implant/sliver/shell/pty"
+	"4zreco/var/sliver/implant/sliver/shell/pty"
 )
 
 var (

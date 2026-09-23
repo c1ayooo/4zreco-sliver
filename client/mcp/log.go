@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"4zreco/sliver/client/assets"
+	"4zreco/var/sliver/client/assets"
 )
 
 const mcpLogTimeFormat = "2006-01-02_15-04-05"

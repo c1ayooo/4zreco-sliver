@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"4zreco/sliver/protobuf"
+	"4zreco/var/sliver/protobuf"
 )
 
 func TestSetupGoPathCopiesSliverpbCapabilities(t *testing.T) {

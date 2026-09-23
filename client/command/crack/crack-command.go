@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 )

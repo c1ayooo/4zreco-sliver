@@ -1,6 +1,6 @@
 syntax = "proto3";
 package dnspb;
-option go_package = "4zreco/sliver/protobuf/dnspb";
+option go_package = "4zreco/var/sliver/protobuf/dnspb";
 
 enum DNSMessageType {
     NOP = 0; // aka FINGERPRINT

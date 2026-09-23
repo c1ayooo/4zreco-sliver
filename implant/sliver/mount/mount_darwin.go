@@ -23,7 +23,7 @@ package mount
 import (
 	"strings"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"golang.org/x/sys/unix"
 )
 

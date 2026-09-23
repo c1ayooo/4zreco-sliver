@@ -28,7 +28,7 @@ import (
 	"unicode/utf16"
 	"unsafe"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 
 	"golang.org/x/sys/windows"
 )

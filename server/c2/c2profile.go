@@ -22,9 +22,9 @@ import (
 	"log"
 	"os"
 
-	"4zreco/sliver/client/constants"
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/db"
+	"4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/db"
 )
 
 func SetupDefaultC2Profiles() {

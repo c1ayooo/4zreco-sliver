@@ -23,9 +23,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/server/certs"
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/console"
+	"4zreco/var/sliver/server/certs"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/console"
 	"github.com/spf13/cobra"
 )
 

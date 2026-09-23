@@ -25,7 +25,7 @@ import (
 	"log"
 	"net"
 
-	"4zreco/sliver/implant/sliver/netstack"
+	"4zreco/var/sliver/implant/sliver/netstack"
 	"github.com/things-go/go-socks5"
 )
 

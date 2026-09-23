@@ -12,7 +12,7 @@ import (
 	"sync"
 
 	webpush "github.com/SherClockHolmes/webpush-go"
-	"4zreco/sliver/server/configs"
+	"4zreco/var/sliver/server/configs"
 	"github.com/nikoksr/notify"
 	notifyamazonses "github.com/nikoksr/notify/service/amazonses"
 	notifyamazonsns "github.com/nikoksr/notify/service/amazonsns"

@@ -27,7 +27,7 @@ import (
 	"strconv"
 	"time"
 
-	"4zreco/sliver/implant/sliver/util"
+	"4zreco/var/sliver/implant/sliver/util"
 )
 
 const (

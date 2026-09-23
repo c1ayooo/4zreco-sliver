@@ -3,8 +3,8 @@ package jobs
 import (
 	"testing"
 
-	"4zreco/sliver/client/console"
-	consts "4zreco/sliver/client/constants"
+	"4zreco/var/sliver/client/console"
+	consts "4zreco/var/sliver/client/constants"
 	"github.com/spf13/cobra"
 )
 

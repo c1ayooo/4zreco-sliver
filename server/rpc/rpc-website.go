@@ -23,14 +23,14 @@ import (
 	"mime"
 	"path/filepath"
 
-	consts "4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
+	consts "4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
 
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/server/website"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/server/website"
 )
 
 var (

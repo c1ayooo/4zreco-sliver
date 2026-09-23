@@ -18,7 +18,7 @@ package credentials
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import "4zreco/sliver/protobuf/clientpb"
+import "4zreco/var/sliver/protobuf/clientpb"
 
 var (
 	CommonHashTypes = map[clientpb.HashType]string{

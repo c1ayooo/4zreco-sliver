@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	clientcore "4zreco/sliver/client/core"
-	"4zreco/sliver/client/tcpproxy"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	clientcore "4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/client/tcpproxy"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 const (

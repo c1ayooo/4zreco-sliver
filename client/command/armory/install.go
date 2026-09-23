@@ -31,14 +31,14 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/assets"
-	"4zreco/sliver/client/command/alias"
-	"4zreco/sliver/client/command/extensions"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/constants"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/util"
-	"4zreco/sliver/util/minisign"
+	"4zreco/var/sliver/client/assets"
+	"4zreco/var/sliver/client/command/alias"
+	"4zreco/var/sliver/client/command/extensions"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/util"
+	"4zreco/var/sliver/util/minisign"
 )
 
 // ErrPackageNotFound - The package was not found

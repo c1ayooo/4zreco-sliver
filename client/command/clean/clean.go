@@ -21,13 +21,13 @@ package clean
 import (
 	"context"
 
-	"4zreco/sliver/client/command/flags"
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/constants"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/command/flags"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"github.com/spf13/cobra"
 )
 

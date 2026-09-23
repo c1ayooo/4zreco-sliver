@@ -26,8 +26,8 @@ import (
 	"sync"
 	"testing"
 
-	implantCrypto "4zreco/sliver/implant/sliver/cryptography"
-	"4zreco/sliver/util/minisign"
+	implantCrypto "4zreco/var/sliver/implant/sliver/cryptography"
+	"4zreco/var/sliver/util/minisign"
 )
 
 var (

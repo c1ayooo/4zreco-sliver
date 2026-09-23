@@ -8,13 +8,13 @@ import (
 	"sort"
 	"strings"
 
-	clientcredentials "4zreco/sliver/client/credentials"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	serverai "4zreco/sliver/server/ai"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
-	serverloot "4zreco/sliver/server/loot"
+	clientcredentials "4zreco/var/sliver/client/credentials"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	serverai "4zreco/var/sliver/server/ai"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
+	serverloot "4zreco/var/sliver/server/loot"
 	"github.com/gofrs/uuid"
 )
 

@@ -4,7 +4,7 @@ import (
 	"sort"
 
 	"charm.land/huh/v2"
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 type formatOption struct {

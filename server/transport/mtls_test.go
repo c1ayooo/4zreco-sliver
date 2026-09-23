@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/server/certs"
+	"4zreco/var/sliver/server/certs"
 )
 
 func TestOperatorClientCertificateValidation(t *testing.T) {

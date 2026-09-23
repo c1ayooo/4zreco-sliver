@@ -21,9 +21,9 @@ import (
 	"context"
 	"strconv"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/proto"
 )

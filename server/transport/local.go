@@ -21,9 +21,9 @@ package transport
 import (
 	"runtime/debug"
 
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/server/log"
-	"4zreco/sliver/server/rpc"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/server/log"
+	"4zreco/var/sliver/server/rpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/test/bufconn"
 )

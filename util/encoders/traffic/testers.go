@@ -23,7 +23,7 @@ import (
 	"crypto/rand"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 type TrafficEncoderTestFunc func(*TrafficEncoder) *clientpb.TrafficEncoderTest

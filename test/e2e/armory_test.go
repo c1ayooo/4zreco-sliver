@@ -16,9 +16,9 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"4zreco/sliver/client/command/armory"
-	"4zreco/sliver/client/command/extensions"
-	"4zreco/sliver/util/minisign"
+	"4zreco/var/sliver/client/command/armory"
+	"4zreco/var/sliver/client/command/extensions"
+	"4zreco/var/sliver/util/minisign"
 )
 
 func TestValidateSAEnvOutputDoesNotDiscloseOutput(t *testing.T) {

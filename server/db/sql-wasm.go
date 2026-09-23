@@ -21,8 +21,8 @@ package db
 */
 
 import (
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/db/wasmsqlite"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/db/wasmsqlite"
 	_ "github.com/ncruces/go-sqlite3"
 	_ "github.com/ncruces/go-sqlite3/driver"
 	_ "github.com/ncruces/go-sqlite3/embed"

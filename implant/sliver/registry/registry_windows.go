@@ -11,8 +11,8 @@ import (
 	// {{end}}
 	"strings"
 
-	"4zreco/sliver/implant/sliver/priv"
-	"4zreco/sliver/implant/sliver/syscalls"
+	"4zreco/var/sliver/implant/sliver/priv"
+	"4zreco/var/sliver/implant/sliver/syscalls"
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
 )

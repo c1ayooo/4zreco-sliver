@@ -23,9 +23,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/assets"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/assets"
+	"4zreco/var/sliver/server/log"
 	"gopkg.in/yaml.v3"
 )
 

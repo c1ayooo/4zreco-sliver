@@ -23,8 +23,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 // StopPivotListenerCmd - Start a TCP pivot listener on the remote system

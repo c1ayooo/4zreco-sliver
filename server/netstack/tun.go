@@ -24,7 +24,7 @@ import (
 	"syscall"
 	"time"
 
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/server/log"
 	"golang.zx2c4.com/wireguard/tun"
 
 	"golang.org/x/net/dns/dnsmessage"

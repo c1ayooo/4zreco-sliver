@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 )
 
 func TestCrackConfigParsesYAML(t *testing.T) {

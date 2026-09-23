@@ -2,7 +2,7 @@ package docs
 
 import (
 	tea "charm.land/bubbletea/v2"
-	"4zreco/sliver/client/console"
+	"4zreco/var/sliver/client/console"
 	"github.com/charmbracelet/colorprofile"
 	"github.com/spf13/cobra"
 	"golang.org/x/term"

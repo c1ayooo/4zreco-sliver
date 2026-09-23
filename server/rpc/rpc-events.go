@@ -1,11 +1,11 @@
 package rpc
 
 import (
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/log"
 )
 
 var (

@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 	"testing"
 
-	pb "4zreco/sliver/protobuf/sliverpb"
+	pb "4zreco/var/sliver/protobuf/sliverpb"
 )
 
 func TestWriteEnvelope_NilEnvelope(t *testing.T) {

@@ -21,7 +21,7 @@ package cli
 import (
 	"fmt"
 
-	"4zreco/sliver/server/version"
+	"4zreco/var/sliver/server/version"
 	"github.com/spf13/cobra"
 )
 

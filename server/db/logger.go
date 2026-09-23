@@ -4,8 +4,8 @@ import (
 	"strings"
 	"time"
 
-	"4zreco/sliver/server/configs"
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/server/configs"
+	"4zreco/var/sliver/server/log"
 	"gorm.io/gorm/logger"
 )
 

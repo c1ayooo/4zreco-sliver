@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"4zreco/sliver/server/gogo"
+	"4zreco/var/sliver/server/gogo"
 )
 
 func TestIsZigCC(t *testing.T) {

@@ -9,12 +9,12 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	serverai "4zreco/sliver/server/ai"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/util/encoders"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	serverai "4zreco/var/sliver/server/ai"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/util/encoders"
 	"google.golang.org/protobuf/proto"
 )
 

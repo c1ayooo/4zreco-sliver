@@ -21,9 +21,9 @@ RUN groupadd -g 999 sliver && useradd -r -u 999 -g sliver sliver
 RUN mkdir -p /home/sliver/ && chown -R sliver:sliver /home/sliver
 
 ### Build sliver:
-RUN mkdir -p /go/src/4zreco/sliver
-WORKDIR /go/src/4zreco/sliver
-ADD . /go/src/4zreco/sliver/
+RUN mkdir -p /go/src/4zreco/var/sliver
+WORKDIR /go/src/4zreco/var/sliver
+ADD . /go/src/4zreco/var/sliver/
 RUN make
 RUN cp -vv sliver-server /opt/sliver-server 
 
@@ -43,7 +43,7 @@ RUN apt-get update --fix-missing \
 RUN /opt/sliver-server unpack --force 
 
 ### Run unit tests
-RUN /go/src/4zreco/sliver/go-tests.sh ${GO_TESTS_FLAGS}
+RUN /go/src/4zreco/var/sliver/go-tests.sh ${GO_TESTS_FLAGS}
 
 # STAGE: production
 ## Final dockerized form of Sliver

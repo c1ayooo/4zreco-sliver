@@ -3,8 +3,8 @@ package mcp
 import (
 	"time"
 
-	"4zreco/sliver/client/console"
-	clientmcp "4zreco/sliver/client/mcp"
+	"4zreco/var/sliver/client/console"
+	clientmcp "4zreco/var/sliver/client/mcp"
 	"github.com/spf13/cobra"
 )
 

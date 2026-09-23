@@ -22,9 +22,9 @@ import (
 	"errors"
 	"strings"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/core"
-	"4zreco/sliver/client/forms"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/client/forms"
 	"github.com/spf13/cobra"
 )
 

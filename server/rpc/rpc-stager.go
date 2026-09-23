@@ -22,10 +22,10 @@ import (
 	"context"
 	"net"
 
-	"4zreco/sliver/client/constants"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/c2"
-	"4zreco/sliver/server/db"
+	"4zreco/var/sliver/client/constants"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/c2"
+	"4zreco/var/sliver/server/db"
 )
 
 // StartTCPStagerListener starts a TCP stager listener

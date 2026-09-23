@@ -9,9 +9,9 @@ import (
 	"os"
 	"strings"
 
-	"4zreco/sliver/client/console"
-	clientmcp "4zreco/sliver/client/mcp"
-	"4zreco/sliver/client/version"
+	"4zreco/var/sliver/client/console"
+	clientmcp "4zreco/var/sliver/client/mcp"
+	"4zreco/var/sliver/client/version"
 	mcpclient "github.com/mark3labs/mcp-go/client"
 	mcptransport "github.com/mark3labs/mcp-go/client/transport"
 	mcpapi "github.com/mark3labs/mcp-go/mcp"

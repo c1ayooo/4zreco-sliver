@@ -29,12 +29,12 @@ import (
 
 	// {{if .Config.Debug}}
 	"log"
-	"4zreco/sliver/implant/sliver/cryptography"
+	"4zreco/var/sliver/implant/sliver/cryptography"
 	// {{end}}
 
 	utls "github.com/refraction-networking/utls"
 
-	"4zreco/sliver/implant/sliver/proxy"
+	"4zreco/var/sliver/implant/sliver/proxy"
 )
 
 // GoHTTPDriver - Pure Go HTTP driver

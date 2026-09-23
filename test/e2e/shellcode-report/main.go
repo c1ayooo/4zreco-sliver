@@ -6,7 +6,7 @@ import (
 	"io"
 	"os"
 
-	shellcodecoverage "4zreco/sliver/test/e2e/shellcodecoverage"
+	shellcodecoverage "4zreco/var/sliver/test/e2e/shellcodecoverage"
 )
 
 func main() {

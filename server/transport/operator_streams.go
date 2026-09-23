@@ -6,7 +6,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/server/db/models"
 	"google.golang.org/grpc"
 )
 

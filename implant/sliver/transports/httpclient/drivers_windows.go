@@ -24,7 +24,7 @@ import (
 	"log"
 	// {{end}}
 
-	"4zreco/sliver/implant/sliver/transports/httpclient/drivers/win/wininet"
+	"4zreco/var/sliver/implant/sliver/transports/httpclient/drivers/win/wininet"
 )
 
 var (

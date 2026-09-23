@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"4zreco/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/clientpb"
 	wasmdonut "github.com/sliverarmory/wasm-donut"
 )
 

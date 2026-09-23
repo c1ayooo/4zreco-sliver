@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/implant/sliver/cryptography"
+	"4zreco/var/sliver/implant/sliver/cryptography"
 )
 
 func rawSigStub() []byte {

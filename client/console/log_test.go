@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	consts "4zreco/sliver/client/constants"
+	consts "4zreco/var/sliver/client/constants"
 )
 
 func TestDrainStdoutPipeBufferStripsSyncFrames(t *testing.T) {

@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
 	"google.golang.org/protobuf/proto"
 )
 

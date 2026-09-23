@@ -3,7 +3,7 @@
 package db
 
 import (
-	"4zreco/sliver/server/configs"
+	"4zreco/var/sliver/server/configs"
 	"gorm.io/gorm"
 )
 

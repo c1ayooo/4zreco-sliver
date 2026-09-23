@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"4zreco/sliver/client/assets"
+	"4zreco/var/sliver/client/assets"
 )
 
 type AkaAlias struct {

@@ -27,7 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"4zreco/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 )
 
 var (

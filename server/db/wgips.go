@@ -6,7 +6,7 @@ import (
 	"net"
 	"strings"
 
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/server/db/models"
 	"gorm.io/gorm"
 )
 

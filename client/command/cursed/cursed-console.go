@@ -26,10 +26,10 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"4zreco/sliver/client/console"
-	"4zreco/sliver/client/core"
-	"4zreco/sliver/client/forms"
-	"4zreco/sliver/client/overlord"
+	"4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/client/core"
+	"4zreco/var/sliver/client/forms"
+	"4zreco/var/sliver/client/overlord"
 	"github.com/reeflective/readline"
 	"github.com/spf13/cobra"
 )

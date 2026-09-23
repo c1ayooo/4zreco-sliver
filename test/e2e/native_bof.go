@@ -18,12 +18,12 @@ import (
 	"sync"
 	"time"
 
-	clientopfor "4zreco/sliver/client/command/opfor"
-	clientconsole "4zreco/sliver/client/console"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/rpcpb"
-	"4zreco/sliver/protobuf/sliverpb"
+	clientopfor "4zreco/var/sliver/client/command/opfor"
+	clientconsole "4zreco/var/sliver/client/console"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/proto"
 )

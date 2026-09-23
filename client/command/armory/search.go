@@ -23,9 +23,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"4zreco/sliver/client/command/alias"
-	"4zreco/sliver/client/command/extensions"
-	"4zreco/sliver/client/console"
+	"4zreco/var/sliver/client/command/alias"
+	"4zreco/var/sliver/client/command/extensions"
+	"4zreco/var/sliver/client/console"
 )
 
 // ArmorySearchCmd - Search for packages by name

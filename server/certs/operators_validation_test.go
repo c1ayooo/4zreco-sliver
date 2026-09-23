@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
 )
 
 func TestValidateOperatorClientCertificateAdversarial(t *testing.T) {

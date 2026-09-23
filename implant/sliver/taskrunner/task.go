@@ -24,7 +24,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"4zreco/sliver/implant/sliver/util"
+	"4zreco/var/sliver/implant/sliver/util"
 )
 
 // Utility functions

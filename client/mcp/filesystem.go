@@ -8,10 +8,10 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/util/encoders"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/util/encoders"
 	mcpapi "github.com/mark3labs/mcp-go/mcp"
 	"google.golang.org/protobuf/proto"
 )

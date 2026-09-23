@@ -19,9 +19,9 @@ package generate
 */
 
 import (
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
 )
 
 // SliverExternal - Generates the cryptographic keys for the implant but compiles no code

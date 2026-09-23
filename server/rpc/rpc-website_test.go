@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/website"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/website"
 )
 
 func TestWebsiteRemoveDeletesWebsiteWithContent(t *testing.T) {

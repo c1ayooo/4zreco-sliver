@@ -3,11 +3,11 @@ package rpc
 import (
 	"context"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/commonpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/certs"
-	"4zreco/sliver/server/generate"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/commonpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/certs"
+	"4zreco/var/sliver/server/generate"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

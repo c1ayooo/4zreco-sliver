@@ -24,8 +24,8 @@ import (
 	insecureRand "math/rand"
 	"testing"
 
-	implantEncoders "4zreco/sliver/implant/sliver/encoders"
-	util "4zreco/sliver/util/encoders"
+	implantEncoders "4zreco/var/sliver/implant/sliver/encoders"
+	util "4zreco/var/sliver/util/encoders"
 )
 
 const (

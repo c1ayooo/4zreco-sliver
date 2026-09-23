@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"strings"
 
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/server/db"
-	"4zreco/sliver/server/db/models"
-	"4zreco/sliver/util"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/server/db"
+	"4zreco/var/sliver/server/db/models"
+	"4zreco/var/sliver/util"
 )
 
 const (

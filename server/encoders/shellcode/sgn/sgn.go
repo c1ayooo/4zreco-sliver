@@ -27,7 +27,7 @@ import (
 	"strconv"
 	"strings"
 
-	"4zreco/sliver/server/log"
+	"4zreco/var/sliver/server/log"
 	sgnpkg "github.com/moloch--/sgn/pkg"
 )
 

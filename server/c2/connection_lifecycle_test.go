@@ -12,13 +12,13 @@ import (
 	"testing"
 	"time"
 
-	implantCrypto "4zreco/sliver/implant/sliver/cryptography"
-	"4zreco/sliver/protobuf/clientpb"
-	"4zreco/sliver/protobuf/sliverpb"
-	"4zreco/sliver/server/core"
-	"4zreco/sliver/server/core/rtunnels"
-	serverCrypto "4zreco/sliver/server/cryptography"
-	serverHandlers "4zreco/sliver/server/handlers"
+	implantCrypto "4zreco/var/sliver/implant/sliver/cryptography"
+	"4zreco/var/sliver/protobuf/clientpb"
+	"4zreco/var/sliver/protobuf/sliverpb"
+	"4zreco/var/sliver/server/core"
+	"4zreco/var/sliver/server/core/rtunnels"
+	serverCrypto "4zreco/var/sliver/server/cryptography"
+	serverHandlers "4zreco/var/sliver/server/handlers"
 	"github.com/hashicorp/yamux"
 )
 

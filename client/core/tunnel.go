@@ -24,7 +24,7 @@ import (
 	"io"
 	"log"
 
-	"4zreco/sliver/protobuf/rpcpb"
+	"4zreco/var/sliver/protobuf/rpcpb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
