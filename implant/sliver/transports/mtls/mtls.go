@@ -272,7 +272,7 @@ func getTLSConfig() *tls.Config {
 	certPEM, err := tls.X509KeyPair([]byte(certPEM), []byte(keyPEM))
 	if err != nil {
 		// {{if .Config.Debug}}
-		log.Printf("Cannot load sliver certificate: %v", err)
+		log.Printf("Cannot load local certificate: %v", err)
 		// {{end}}
 		os.Exit(5)
 	}

@@ -327,14 +327,14 @@ func WGConnect(address string, port uint16) (net.Conn, *device.Device, error) {
 	connection, err := dialDevice(tNet, dev, "tcp", fmt.Sprintf("%s:%d", serverTunIP, wgTcpCommsPort))
 	if err != nil {
 		// {{if .Config.Debug}}
-		log.Printf("Unable to connect to sliver listener: %v", err)
+		log.Printf("Unable to connect to listener: %v", err)
 		// {{end}}
 		failedConn++
 		return nil, nil, err
 	}
 
 	// {{if .Config.Debug}}
-	log.Printf("Successfully connected to sliver listener")
+	log.Printf("Successfully connected to listener")
 	// {{end}}
 	failedConn = 0
 	tunnelNet = tNet
