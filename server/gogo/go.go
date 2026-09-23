@@ -145,7 +145,7 @@ func GarbleCmd(config GoConfig, cwd string, command []string) ([]byte, error) {
 		return nil, fmt.Errorf("%s", fmt.Sprintf("Invalid compiler target: %s", target))
 	}
 	garbleBinPath := goToolPath(config.GOROOT, "garble")
-	garbleFlags := []string{"-seed=random", "-literals", "-tiny"}
+	garbleFlags := garbleFlagSet()
 	command = append(garbleFlags, command...)
 	cmd := exec.Command(garbleBinPath, command...)
 	cmd.Dir = cwd
@@ -269,4 +269,18 @@ func GoToolDistList(config GoConfig) []string {
 	}
 	lines := strings.Split(string(data), "\n")
 	return lines
+}
+
+// garbleFlagSet garble 启动参数（免杀 S-2 可配化）：默认 `-seed=random -literals -tiny`，
+// 可用 SLIVER_GARBLE_FLAGS 环境变量空白分隔覆盖。红线：-literals（字符串加密）是
+// Go 二进制免杀主要收益，自定义时不得关闭；-controlflow/-debug 等按所用 garble
+// fork 支持情况启用（moloch--/garble，版本见 scripts/sliver-toolchain.lock）。
+func garbleFlagSet() []string {
+	flags := []string{"-seed=random", "-literals", "-tiny"}
+	if custom := strings.TrimSpace(os.Getenv("SLIVER_GARBLE_FLAGS")); custom != "" {
+		if fields := strings.Fields(custom); len(fields) > 0 {
+			return fields
+		}
+	}
+	return flags
 }

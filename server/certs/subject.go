@@ -23,7 +23,6 @@ import (
 	"fmt"
 	"strings"
 
-	"4zreco/sliver/server/codenames"
 	"4zreco/sliver/util"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -256,7 +255,7 @@ var (
 func randomSubject(commonName string) *pkix.Name {
 	country, province, locale, street := randomProvinceLocalityStreetAddress()
 	return &pkix.Name{
-		Organization:  randomOrganization(),
+		Organization:  randomOrganization(country[0]),
 		Country:       country,
 		Province:      province,
 		Locality:      locale,
@@ -282,6 +281,18 @@ func randomPostalCode(country []string) []string {
 		switch util.Intn(postalProbability) {
 		case 0:
 			return []string{fmt.Sprintf("%05d", util.Intn(90000)+1000)}
+		default:
+			return []string{}
+		}
+
+	case "JP":
+		// Japanese postal codes are 7 digits, commonly formatted NNN-NNNN
+		switch util.Intn(postalProbability) {
+		case 0:
+			if util.Intn(2) == 0 {
+				return []string{fmt.Sprintf("%03d-%04d", util.Intn(1000), util.Intn(10000))}
+			}
+			return []string{fmt.Sprintf("%07d", util.Intn(10000000))}
 		default:
 			return []string{}
 		}
@@ -345,8 +356,41 @@ func randomStreetAddress(country string, state string, locality string) string {
 	return addresses[util.Intn(len(addresses))]
 }
 
+// orgSuffixForCountry 按所选国家返回组织后缀（免杀 C-1②）：消除「Foo GmbH +
+// 加州地址」这类后缀语言与地理错配的可统计指纹；未知国家回落中性集。
+func orgSuffixForCountry(country string) string {
+	suffixes, ok := orgSuffixesByCountry[country]
+	if !ok {
+		suffixes = orgSuffixesNeutral
+	}
+	return suffixes[util.Intn(len(suffixes))]
+}
+
+var orgSuffixesByCountry = map[string][]string{
+	"US": {"", "", "Inc.", "LLC", "Corp.", "Inc", "Corporation", "Company", "Group", "Holdings", "Associates", "Partners", "Solutions", "Technologies"},
+	"CA": {"", "", "Ltd.", "Inc.", "Corp.", "Limited", "Group", "Holdings", "Associates"},
+	"JP": {"", "", "K.K.", "Co., Ltd.", "Ltd.", "Group", "Holdings"},
+}
+
+var orgSuffixesNeutral = []string{"", "", "Ltd.", "Inc.", "Group", "Holdings", "Associates", "Partners"}
+
+// 自有企业词表（免杀 C-1①）：弃用 sliver 公开 codenames 词表（可被统计指纹化），
+// 改为项目自有行业中性企业词；可按目标行业整表替换（与 internal/evasion G-1 画像词源同源理念）。
 var (
-	orgSuffixes = []string{
+	orgWordModifiers = []string{
+		"unified", "global", "pacific", "summit", "meridian", "atlas", "vertex", "horizon",
+		"cascade", "harbor", "cornerstone", "keystone", "northgate", "silverline", "ironwood",
+		"clearwater", "stonebridge", "redwood", "bluemount", "everline", "granite", "landmark",
+	}
+	orgWordNouns = []string{
+		"logistics", "analytics", "consulting", "engineering", "manufacturing", "distributors",
+		"industries", "networks", "financial", "materials", "machinery", "trading",
+		"construction", "electrical", "freight", "packaging", "printing", "textiles",
+	}
+)
+
+var (
+	orgSuffixesDeprecated = []string{
 		"",
 		"",
 		"co",
@@ -416,10 +460,10 @@ var (
 	}
 )
 
-func randomOrganization() []string {
-	adjective, _ := codenames.RandomAdjective()
-	noun, _ := codenames.RandomNoun()
-	suffix := orgSuffixes[util.Intn(len(orgSuffixes))]
+func randomOrganization(country string) []string {
+	modifier := orgWordModifiers[util.Intn(len(orgWordModifiers))]
+	noun := orgWordNouns[util.Intn(len(orgWordNouns))]
+	suffix := orgSuffixForCountry(country)
 
 	// Not exactly sure this even matters much, but hey its fun to add more randomness
 	caseTitles := []cases.Caser{
@@ -432,21 +476,21 @@ func randomOrganization() []string {
 	var orgName string
 	switch util.Intn(8) {
 	case 0:
-		orgName = strings.TrimSpace(fmt.Sprintf("%s %s, %s", adjective, noun, suffix))
+		orgName = strings.TrimSpace(fmt.Sprintf("%s %s, %s", modifier, noun, suffix))
 	case 1:
-		orgName = strings.TrimSpace(strings.ToLower(fmt.Sprintf("%s %s, %s", adjective, noun, suffix)))
+		orgName = strings.TrimSpace(strings.ToLower(fmt.Sprintf("%s %s, %s", modifier, noun, suffix)))
 	case 2:
 		orgName = strings.TrimSpace(fmt.Sprintf("%s, %s", noun, suffix))
 	case 3:
-		orgName = strings.TrimSpace(caseTitle.String(fmt.Sprintf("%s %s, %s", adjective, noun, suffix)))
+		orgName = strings.TrimSpace(caseTitle.String(fmt.Sprintf("%s %s, %s", modifier, noun, suffix)))
 	case 4:
-		orgName = strings.TrimSpace(caseTitle.String(fmt.Sprintf("%s %s", adjective, noun)))
+		orgName = strings.TrimSpace(caseTitle.String(fmt.Sprintf("%s %s", modifier, noun)))
 	case 5:
-		orgName = strings.TrimSpace(strings.ToLower(fmt.Sprintf("%s %s", adjective, noun)))
+		orgName = strings.TrimSpace(strings.ToLower(fmt.Sprintf("%s %s", modifier, noun)))
 	case 6:
 		orgName = strings.TrimSpace(caseTitle.String(fmt.Sprintf("%s", noun)))
 	case 7:
-		noun2, _ := codenames.RandomNoun()
+		noun2 := orgWordNouns[util.Intn(len(orgWordNouns))]
 		orgName = strings.TrimSpace(strings.ToLower(fmt.Sprintf("%s-%s", noun, noun2)))
 	default:
 		orgName = ""

