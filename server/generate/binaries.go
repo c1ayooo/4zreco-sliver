@@ -339,8 +339,14 @@ func commonGoConfig(config *clientpb.ImplantConfig, appDir string) *gogo.GoConfi
 }
 
 // buildTags 六处共享的构建 tag（netgo 按需启用）。
+// 7f192d2「六处构建分支收敛」抽取本函数时把函数体写成了自调用（`tags := buildTags(config)`），
+// 而它有 6 个调用点 → 任何调用立即栈溢出（server/generate、server/rpc 测试
+// `fatal error: stack overflow` 的根因）。此处逐字恢复收敛前的内联实现。
 func buildTags(config *clientpb.ImplantConfig) []string {
-	tags := buildTags(config)
+	tags := []string{}
+	if config.NetGoEnabled {
+		tags = append(tags, "netgo")
+	}
 	return tags
 }
 
