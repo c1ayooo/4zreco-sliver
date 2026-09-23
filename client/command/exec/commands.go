@@ -78,7 +78,7 @@ func Commands(con *console.SliverClient) []*cobra.Command {
 		f.StringP("class", "c", "", "Optional class name (required for .NET DLL)")
 		f.StringP("app-domain", "d", "", "AppDomain name to create for .NET assembly. Generated randomly if not set.")
 		f.StringP("arch", "a", "x84", "Assembly target architecture: x86, x64, x84 (x86+x64)")
-		f.BoolP("in-process", "i", false, "Run in the current sliver process")
+		f.BoolP("in-process", "i", true, "Run in the current sliver process (default on, R-5①: unlocks AMSI/ETW bypass and avoids sacrificial-process spawns; pass=false for fork/exec)")
 		f.StringP("runtime", "r", "", "Runtime to use for running the assembly (only supported when used with --in-process)")
 		f.BoolP("save", "s", false, "save output to file")
 		f.BoolP("loot", "X", false, "save output as loot")
