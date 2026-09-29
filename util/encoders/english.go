@@ -20,20 +20,20 @@ package encoders
 
 import (
 	"strings"
+	"sync"
 
 	"4zreco/var/sliver/util"
 )
 
 var dictionary map[int][]string
+var dictOnce sync.Once
 
 // English Encoder - An ASCIIEncoder for binary to english text
 type English struct{}
 
 // Encode - Binary => English
 func (e English) Encode(data []byte) ([]byte, error) {
-	if dictionary == nil {
-		buildDictionary()
-	}
+	dictOnce.Do(buildDictionary)
 	words := []string{}
 	for _, b := range data {
 		possibleWords := dictionary[int(b)]
@@ -59,12 +59,17 @@ func (e English) Decode(words []byte) ([]byte, error) {
 }
 
 var rawEnglishDictionary []string
+var rawDictMu sync.RWMutex
 
 func SetEnglishDictionary(dictionary []string) {
+	rawDictMu.Lock()
+	defer rawDictMu.Unlock()
 	rawEnglishDictionary = dictionary
 }
 
 func getEnglishDictionary() []string {
+	rawDictMu.RLock()
+	defer rawDictMu.RUnlock()
 	return rawEnglishDictionary
 }
 
